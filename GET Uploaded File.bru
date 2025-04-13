@@ -1,0 +1,19 @@
+meta {
+  name: GET Uploaded File
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/uploads/uploads%2F1744586403413-d8a0de80-c536-4f61-ab0e-d1af9a7aa262
+  body: none
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(/home/mushfiq/Pictures/Screenshots/Screenshot From 2025-02-07 04-22-08.png)
+}
+
+body:file {
+  file: @file(/home/mushfiq/Pictures/Screenshots/Screenshot From 2025-02-07 04-22-08.png) @contentType(image/png)
+}
