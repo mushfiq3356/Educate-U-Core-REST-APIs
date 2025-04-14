@@ -1,0 +1,15 @@
+meta {
+  name: GET Application by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/admission/profile/application?applicationId=5a60f62d-eb04-4fec-81b0-7478b6b68539
+  body: none
+  auth: inherit
+}
+
+params:query {
+  applicationId: 5a60f62d-eb04-4fec-81b0-7478b6b68539
+}

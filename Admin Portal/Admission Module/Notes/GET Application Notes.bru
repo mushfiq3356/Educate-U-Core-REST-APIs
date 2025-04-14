@@ -1,0 +1,15 @@
+meta {
+  name: GET Application Notes
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/admission/notes/application?applicationId=5a60f62d-eb04-4fec-81b0-7478b6b68539
+  body: none
+  auth: inherit
+}
+
+params:query {
+  applicationId: 5a60f62d-eb04-4fec-81b0-7478b6b68539
+}
