@@ -1,0 +1,78 @@
+meta {
+  name: UPDATE Application
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{BASE_URL}}/application-management/fc2bc76f-2a3b-40ea-a4c5-63f6d6977740
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "PENDING",
+    "stage": "NEW",
+    "personalInformation": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "countryOfBirth": "USA",
+      "currentNationality": "American",
+      "sex": "MALE",
+      "ethnicity": "Caucasian",
+      "mobileNumber": "+1234567890",
+      "countryOfResidence": "USA",
+      "currentAddress": "123 Main St",
+      "currentPostCode": "12345",
+      "permanentAddress": "123 Main St",
+      "nationalIdentityType": "Passport",
+      "nationalIdentityNumber": "A12345678"
+    },
+    "academicBackground": {
+      "highestLevelOfQualification": "Bachelor's Degree",
+      "areaOfQualification": "Computer Science",
+      "gradeOrResult": "First Class",
+      "yearCompleted": "2012",
+      "countryOfIssue": "USA",
+      "institutionName": "Harvard University"
+    },
+    "courseSelection": {
+      "faculty": "Engineering",
+      "course": "MSc Computer Science",
+      "intake": "Fall",
+      "yearOfCourse": "2024"
+    },
+    "personalStatement": {
+      "statement": "I have always been passionate about technology and innovation."
+    },
+    "disabilityAndAccessibility": {
+      "disabilityAndAccessibility": "None"
+    },
+    "nextOfKin": {
+      "relationship": "Brother",
+      "fullName": "James Doe",
+      "phoneOrMobile": "+1234567891",
+      "address": "456 Elm St"
+    },
+    "fund": {
+      "source": "Self-funded"
+    },
+    "reference": {
+      "relationship": "Professor"
+    },
+    "criminalBackground": {
+      "offenseOrPenalty": "None",
+      "offenseOrPenaltyDetails": "asdf",
+      "disqualificationOrSanction": "None",
+      "disqualificationOrSanctionDetails": "asdf",
+      "policeClearance": "YES"
+    },
+    "supportingDocument": {
+      "nationalIdentification": "A12345678",
+      "policeClearance": "Clearance Document.pdf",
+      "otherDocument": "Transcript.pdf"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+meta {
+  name: GET Additional File Checks
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/additional-file-check/general-file-checks?applicationId=b3033e4c-9b0f-4519-943a-197720472078&fileCheckStatus=PENDING
+  body: none
+  auth: inherit
+}
+
+params:query {
+  applicationId: b3033e4c-9b0f-4519-943a-197720472078
+  fileCheckStatus: PENDING
+}

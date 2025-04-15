@@ -1,0 +1,17 @@
+meta {
+  name: UPDATE Wellbeing Check Status
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/wellbeing/wellbeing-check-status/b3033e4c-9b0f-4519-943a-197720472078
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "APPROVED"
+  }
+}

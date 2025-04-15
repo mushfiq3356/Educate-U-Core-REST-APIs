@@ -1,0 +1,15 @@
+meta {
+  name: GET Application by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/pre-screening/profile/application?applicationId=b3033e4c-9b0f-4519-943a-197720472078
+  body: none
+  auth: inherit
+}
+
+params:query {
+  applicationId: b3033e4c-9b0f-4519-943a-197720472078
+}
