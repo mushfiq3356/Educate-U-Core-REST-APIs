@@ -1,0 +1,21 @@
+meta {
+  name: CREATE Application Note
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/admission/notes/application?applicationId=b8493b58-5c80-4138-8c45-f7c2d3cac96a
+  body: json
+  auth: inherit
+}
+
+params:query {
+  applicationId: b8493b58-5c80-4138-8c45-f7c2d3cac96a
+}
+
+body:json {
+  {
+    "note": "This is a demo note for application"
+  }
+}

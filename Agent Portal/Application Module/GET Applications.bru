@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/application-management
+  url: {{BASE_URL}}/application-management?page=1
   body: none
   auth: inherit
+}
+
+params:query {
+  page: 1
 }

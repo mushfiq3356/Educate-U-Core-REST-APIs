@@ -1,7 +1,7 @@
 meta {
   name: CREATE Application
   type: http
-  seq: 3
+  seq: 1
 }
 
 post {
@@ -18,6 +18,7 @@ body:json {
       "firstName": "John",
       "lastName": "Doe",
       "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "email": "mushfiqxrabbi@gmail.com",
       "countryOfBirth": "USA",
       "currentNationality": "American",
       "sex": "MALE",
@@ -48,7 +49,10 @@ body:json {
       "statement": "I have always been passionate about technology and innovation."
     },
     "disabilityAndAccessibility": {
-      "disabilityAndAccessibility": "None"
+      "disabilityAndAccessibility": [
+        "one",
+        "two"
+      ]
     },
     "nextOfKin": {
       "relationship": "Brother",
@@ -70,9 +74,12 @@ body:json {
       "policeClearance": "YES"
     },
     "supportingDocument": {
-      "nationalIdentification": "A12345678",
-      "policeClearance": "Clearance Document.pdf",
-      "otherDocument": "Transcript.pdf"
+      "nationalIdentification": [
+        "one",
+        "two"
+      ]
+  //     "policeClearance": "Clearance Document.pdf",
+  //     "otherDocument": "Transcript.pdf"
     }
   }
 }
