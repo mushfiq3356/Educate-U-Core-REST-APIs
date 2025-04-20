@@ -1,0 +1,18 @@
+meta {
+  name: SET Pre-screening Outcome
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/pre-screening/outcome/be1e87ff-e639-4a44-b874-82e442e97c58
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "outcome": "one",
+    "template": "two"
+  }
+}

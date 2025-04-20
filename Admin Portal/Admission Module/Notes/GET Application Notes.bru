@@ -5,11 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/admission/notes/application?applicationId=cbec1918-0cf9-45a2-b0e9-fd881f1835e6
+  url: {{BASE_URL}}/admission/notes/application?applicationId=c1d106aa-b772-44ed-8f0e-d70176362291&page=1
   body: none
   auth: inherit
 }
 
 params:query {
-  applicationId: cbec1918-0cf9-45a2-b0e9-fd881f1835e6
+  applicationId: c1d106aa-b772-44ed-8f0e-d70176362291
+  page: 1
+  ~type: FILE_UPDATE_REQUEST
 }
