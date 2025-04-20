@@ -5,7 +5,7 @@ meta {
 }
 
 patch {
-  url: {{BASE_URL}}/application-management/fc2bc76f-2a3b-40ea-a4c5-63f6d6977740
+  url: {{BASE_URL}}/application-management/3b0ccccd-15e6-4b22-8a3d-3e192f072b88
   body: json
   auth: inherit
 }
@@ -18,6 +18,7 @@ body:json {
       "firstName": "John",
       "lastName": "Doe",
       "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "email": "admin@user.com",
       "countryOfBirth": "USA",
       "currentNationality": "American",
       "sex": "MALE",
@@ -48,7 +49,9 @@ body:json {
       "statement": "I have always been passionate about technology and innovation."
     },
     "disabilityAndAccessibility": {
-      "disabilityAndAccessibility": "None"
+      "disabilityAndAccessibility": [
+        "one"
+      ]
     },
     "nextOfKin": {
       "relationship": "Brother",
@@ -70,9 +73,11 @@ body:json {
       "policeClearance": "YES"
     },
     "supportingDocument": {
-      "nationalIdentification": "A12345678",
-      "policeClearance": "Clearance Document.pdf",
-      "otherDocument": "Transcript.pdf"
+      "nationalIdentification": [
+        "one"
+      ]
+  //     "policeClearance": "Clearance Document.pdf",
+  //     "otherDocument": "Transcript.pdf"
     }
   }
 }

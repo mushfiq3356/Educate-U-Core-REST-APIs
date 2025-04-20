@@ -1,7 +1,7 @@
 meta {
-  name: CREATE Application Note
+  name: SEND Field Update Request
   type: http
-  seq: 2
+  seq: 3
 }
 
 post {
@@ -16,6 +16,8 @@ params:query {
 
 body:json {
   {
-    "note": "This is a demo note for application"
+    "note": "This is a field update reques",
+    "type": "FIELD",
+    "fieldName": "personalInformation"
   }
 }
