@@ -1,0 +1,27 @@
+meta {
+  name: CREATE Application Interview
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/interview/applications/0ed12390-815d-487b-90a4-a68e89b0ea05
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+  //   "interviewrId": "5439a39d-eeb8-4592-add2-bcf83c9ffa17",
+    "title": "Frontend Developer Interview",
+    "interviewDate": "2025-04-01T10:00:00.000Z",
+    "startTime": "2025-04-25T10:00:00.000Z",
+    "endTime": "2025-04-25T11:00:00.000Z",
+    "platform": "Zoom",
+    "guests": [
+      "jane.doe@example.com",
+      "john.smith@example.com"
+    ],
+    "color": "#FF5733"
+  }
+}

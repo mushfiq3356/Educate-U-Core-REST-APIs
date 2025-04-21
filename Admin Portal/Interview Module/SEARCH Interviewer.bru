@@ -1,0 +1,15 @@
+meta {
+  name: SEARCH Interviewer
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/interview/interviewer/search?term=adm
+  body: none
+  auth: inherit
+}
+
+params:query {
+  term: adm
+}
