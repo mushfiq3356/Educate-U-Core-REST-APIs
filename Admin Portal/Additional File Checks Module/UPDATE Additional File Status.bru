@@ -1,11 +1,11 @@
 meta {
   name: UPDATE Additional File Status
   type: http
-  seq: 2
+  seq: 3
 }
 
 post {
-  url: {{BASE_URL}}/additional-file-check/general-file-checks/80ee4b55-6dc3-4262-91cc-f35e15468774
+  url: {{BASE_URL}}/additional-file-check/general-file-checks/a7beb3e1-9070-4315-807f-2cc60fda4fb5
   body: json
   auth: inherit
 }
@@ -14,8 +14,13 @@ body:json {
   [
     {
       "attachmentName": "policeClearance",
-      "status": "PENDING"
-  //     "note": "demo note"
+      "status": "NO_INFORMATION_REQUIRED"
+      //     "note": "demo note"
+    },
+    {
+      "attachmentName": "nationalIdentification",
+      "status": "NO_INFORMATION_REQUIRED"
+      //     "note": "demo note"
     }
   ]
 }

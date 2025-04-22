@@ -1,0 +1,17 @@
+meta {
+  name: SET Application Interview Outcome
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{BASE_URL}}/interview/interview-outcome/a7beb3e1-9070-4315-807f-2cc60fda4fb5
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "outcome": "APPROVED"
+  }
+}

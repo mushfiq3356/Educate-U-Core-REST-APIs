@@ -1,0 +1,17 @@
+meta {
+  name: SET Application Outcome
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/admission/submissions/outcome/7f5b3768-c70e-4839-9143-098e8d2aa234
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "outcome": "REJECTED"
+  }
+}

@@ -1,16 +1,16 @@
 meta {
   name: GET Additional File Checks
   type: http
-  seq: 3
+  seq: 4
 }
 
 get {
-  url: {{BASE_URL}}/additional-file-check/general-file-checks?applicationId=b3033e4c-9b0f-4519-943a-197720472078&fileCheckStatus=PENDING
+  url: {{BASE_URL}}/additional-file-check/general-file-checks?applicationId=a7beb3e1-9070-4315-807f-2cc60fda4fb5
   body: none
   auth: inherit
 }
 
 params:query {
-  applicationId: b3033e4c-9b0f-4519-943a-197720472078
-  fileCheckStatus: PENDING
+  applicationId: a7beb3e1-9070-4315-807f-2cc60fda4fb5
+  ~fileCheckStatus: PENDING
 }
