@@ -1,16 +1,16 @@
 meta {
   name: GET General File Checks
   type: http
-  seq: 1
+  seq: 3
 }
 
 get {
-  url: {{BASE_URL}}/admission/checks/general-file-checks?applicationId=b17ccd4f-b2f4-4056-a358-c41dba5efa69
+  url: {{BASE_URL}}/admission/checks/general-file-checks?applicationId=80ee4b55-6dc3-4262-91cc-f35e15468774
   body: none
   auth: inherit
 }
 
 params:query {
-  applicationId: b17ccd4f-b2f4-4056-a358-c41dba5efa69
+  applicationId: 80ee4b55-6dc3-4262-91cc-f35e15468774
   ~fileCheckStatus: INFORMATION_REQUIRED
 }
