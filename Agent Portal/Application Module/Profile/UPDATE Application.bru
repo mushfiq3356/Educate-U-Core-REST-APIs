@@ -5,7 +5,7 @@ meta {
 }
 
 patch {
-  url: {{BASE_URL}}/application-management/3b0ccccd-15e6-4b22-8a3d-3e192f072b88
+  url: {{BASE_URL}}/application-management/8f113e52-cc82-4784-b5d7-838e233aa6bf
   body: json
   auth: inherit
 }
@@ -50,7 +50,8 @@ body:json {
     },
     "disabilityAndAccessibility": {
       "disabilityAndAccessibility": [
-        "one"
+        "one",
+        "two"
       ]
     },
     "nextOfKin": {
@@ -66,18 +67,24 @@ body:json {
       "relationship": "Professor"
     },
     "criminalBackground": {
-      "offenseOrPenalty": "None",
+      "offenseOrPenalty": "YES",
       "offenseOrPenaltyDetails": "asdf",
-      "disqualificationOrSanction": "None",
+      "disqualificationOrSanction": "YES",
       "disqualificationOrSanctionDetails": "asdf",
       "policeClearance": "YES"
     },
     "supportingDocument": {
       "nationalIdentification": [
         "one"
+      ],
+      "policeClearance": [
+      "one"
+      ],
+      "otherDocument": [
+        "one",
+        "two",
+        "three"
       ]
-  //     "policeClearance": "Clearance Document.pdf",
-  //     "otherDocument": "Transcript.pdf"
     }
   }
 }
