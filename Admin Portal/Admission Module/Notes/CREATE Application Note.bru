@@ -5,18 +5,19 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/admission/notes/application?applicationId=c1d106aa-b772-44ed-8f0e-d70176362291
+  url: {{BASE_URL}}/admission/notes/application?applicationId=130b37f2-e6fb-4258-8f8e-66ce94b28d7a
   body: json
   auth: inherit
 }
 
 params:query {
-  applicationId: c1d106aa-b772-44ed-8f0e-d70176362291
+  applicationId: 130b37f2-e6fb-4258-8f8e-66ce94b28d7a
 }
 
 body:json {
   {
-    "note": "This is a demo note for application"
+    "note": "This is a demo note for application",
+    "visibility": "PRIVATE"
   //   "type": "",
   //   "fieldName": "personalInformation",
   //   "attachmentName": "policeClearance"
