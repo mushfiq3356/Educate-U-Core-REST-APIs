@@ -1,0 +1,24 @@
+meta {
+  name: GET Sessions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/session?page=1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+}
+
+body:json {
+  {
+    "name": "Session One",
+    "startTime": "2025-07-16T12:00:00.000Z",
+    "endTime": "2026-07-16T12:00:00.000Z",
+    "status": "ACTIVE"
+  }
+}

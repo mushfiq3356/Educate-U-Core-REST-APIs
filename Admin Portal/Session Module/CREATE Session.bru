@@ -1,0 +1,20 @@
+meta {
+  name: CREATE Session
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/session
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Session One",
+    "startTime": "2025-07-16T12:00:00.000Z",
+    "endTime": "2026-07-16T12:00:00.000Z",
+    "status": "ACTIVE"
+  }
+}

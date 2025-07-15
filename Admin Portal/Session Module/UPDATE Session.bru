@@ -1,0 +1,20 @@
+meta {
+  name: UPDATE Session
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{BASE_URL}}/session/956dadee-a102-41f7-9c6d-efcef3d83cc0
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+  //   "name": "Session One",
+  //   "startTime": "2025-07-16T12:00:00.000Z",
+  //   "endTime": "2026-07-16T12:00:00.000Z",
+    "status": "CLOSED"
+  }
+}
