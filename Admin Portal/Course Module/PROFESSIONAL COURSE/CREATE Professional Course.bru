@@ -1,0 +1,34 @@
+meta {
+  name: CREATE Professional Course
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/courses/professional-courses
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Certified Project Management Professional",
+    "code": "CPMP2024",
+    "startDate": "2024-03-15T09:00:00.000Z",
+    "endDate": "2024-09-15T17:00:00.000Z",
+    "courseDescription": "A comprehensive professional certification program designed to equip participants with advanced project management skills, covering methodologies, risk management, stakeholder communication, and leadership principles.",
+    "studyModes": [
+      "INSTRUCTOR_LED",
+      "BLENDED_OR_HYBRID_LEARNING"
+    ],
+    "durationLength": 26,
+    "professionalAccreditation": "Project Management Institute (PMI) Certification",
+    "accreditationBodyCode": "PMI-001",
+    "accreditationStatus": "ACCREDITED",
+    "accreditationStartDate": "2023-01-01T00:00:00.000Z",
+    "accreditationEndDate": "2028-01-01T00:00:00.000Z",
+    "courseFees": 4500,
+    "fundingModel": "EMPLOYER_FUNDED",
+    "eligibleForSponsorship": "YES"
+  }
+}

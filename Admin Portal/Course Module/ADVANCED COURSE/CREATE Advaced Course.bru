@@ -1,0 +1,45 @@
+meta {
+  name: CREATE Advaced Course
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/courses/advanced-courses
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Bachelor of Science in Computer Science",
+    "code": "BSC-CS-2024",
+  //   "hesaCourseId": null,
+    "type": "DEGREE",
+    "degreeType": "UNDERGRADUATE",
+  //   "diplomaType": null,
+    "intendedAward": "Bachelor of Science (Honours) in Computer Science",
+    "courseDescription": "A comprehensive undergraduate degree program in computer science covering algorithms, data structures, software engineering, artificial intelligence, and computational theory.",
+    "studyModes": [
+      "INSTRUCTOR_LED"
+    ],
+    "durationLength": 36,
+    "numberOfSemesters": 6,
+    "totalCredits": 360,
+    "yearOneExpectedCredits": 120,
+    "yearTwoExpectedCredits": 120,
+    "yearThreeExpectedCredits": 120,
+    "minimumPassingCreditsPerYear": 100,
+  //   "awardingBodyId": "university-uuid-789",
+    "tuitionFeePerYear": 25000,
+    "tuitionFeePerModule": 2500,
+    "accreditationBody": "Higher Education Quality Committee",
+    "accreditationStatus": "ACCREDITED",
+    "qualificationAim": "To develop competent computer science professionals with strong theoretical foundation and practical skills",
+    "approvalDate": "2024-02-01T00:00:00.000Z",
+    "reviewDate": "2029-02-01T00:00:00.000Z",
+    "courseLeader": "Prof. Michael Johnson",
+    "governanceNotes": "Programme validated by external panel"
+  //   "sessionId": "session-uuid-789"
+  }
+}
