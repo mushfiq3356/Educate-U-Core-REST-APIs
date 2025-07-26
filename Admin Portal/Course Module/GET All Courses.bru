@@ -1,5 +1,5 @@
 meta {
-  name: GET Professional Courses
+  name: GET All Courses
   type: http
   seq: 1
 }
@@ -8,10 +8,4 @@ post {
   url: {{BASE_URL}}/courses/get
   body: json
   auth: inherit
-}
-
-body:json {
-  {
-    "courseType": "PROFESSIONAL_COURSE"
-  }
 }

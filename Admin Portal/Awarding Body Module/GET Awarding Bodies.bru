@@ -1,0 +1,28 @@
+meta {
+  name: GET Awarding Bodies
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/awarding-bodies?search=cam
+  body: none
+  auth: inherit
+}
+
+params:query {
+  search: cam
+}
+
+body:json {
+  {
+    "name": "University of Cambridge",
+    "code": "UCAM",
+    "abbreviation": "Cambridge",
+    "status": "ACTIVE"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

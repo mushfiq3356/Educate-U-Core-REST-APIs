@@ -5,30 +5,28 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/courses/professional-courses
+  url: {{BASE_URL}}/courses/create
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "title": "Certified Project Management Professional",
-    "code": "CPMP2024",
-    "startDate": "2024-03-15T09:00:00.000Z",
-    "endDate": "2024-09-15T17:00:00.000Z",
-    "courseDescription": "A comprehensive professional certification program designed to equip participants with advanced project management skills, covering methodologies, risk management, stakeholder communication, and leadership principles.",
+    "courseType": "PROFESSIONAL_COURSE",
+    "title": "Chartered Financial Analyst (CFA) Level I",
+    "code": "CFA-L1-2024",
+    "startDate": "2024-09-01",
+    "endDate": "2024-12-15",
+    "courseDescription": "Comprehensive preparation course for CFA Level I examination covering equity investments, fixed income, derivatives, alternative investments, portfolio management, and ethical standards.",
     "studyModes": [
       "INSTRUCTOR_LED",
-      "BLENDED_OR_HYBRID_LEARNING"
+      "SELF_PACED"
     ],
-    "durationLength": 26,
-    "professionalAccreditation": "Project Management Institute (PMI) Certification",
-    "accreditationBodyCode": "PMI-001",
+    "durationLength": 16,
+    "professionalAccreditation": "CFA Level I Certification",
+    "accreditationBodyCode": "CFAI-001",
     "accreditationStatus": "ACCREDITED",
-    "accreditationStartDate": "2023-01-01T00:00:00.000Z",
-    "accreditationEndDate": "2028-01-01T00:00:00.000Z",
-    "courseFees": 4500,
-    "fundingModel": "EMPLOYER_FUNDED",
-    "eligibleForSponsorship": "YES"
+    "accreditationStartDate": "2020-01-01",
+    "accreditationEndDate": "2030-12-31"
   }
 }

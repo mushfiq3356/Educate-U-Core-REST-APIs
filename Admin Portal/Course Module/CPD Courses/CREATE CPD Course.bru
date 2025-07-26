@@ -5,26 +5,25 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/courses/cpd-courses
+  url: {{BASE_URL}}/courses/create
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "title": "Advanced Project Management Certification",
-    "code": "APM-2024",
-    "courseDescription": "Comprehensive course covering advanced project management methodologies, risk assessment, and leadership skills for senior project managers.",
+    "courseType": "CPD_COURSE",
+    "title": "Advanced Leadership Skills for Healthcare Professionals",
+    "code": "CPD-HLTH-001",
+    "courseDescription": "Develop essential leadership competencies specifically designed for healthcare professionals, covering team management, crisis leadership, and strategic decision-making in medical environments.",
     "studyModes": [
-      "SELF_PACED"
+      "INSTRUCTOR_LED",
+      "COHORT_BASED"
     ],
-    "duration": 12,
-    "professionalAccreditation": "Project Management Institute (PMI) - PMP Certification",
-    "accreditationBodyCode": "PMI-001",
+    "durationLength": 6,
+    "professionalAccreditation": "Royal College of Physicians CPD Credits",
+    "accreditationBodyCode": "RCP-CPD-2024",
     "accreditationStartDate": "2024-01-01",
-    "accreditationEndDate": "2027-12-31",
-    "fees": 2500,
-    "fundingModel": "EMPLOYER_FUNDED",
-    "eligibleForSponsorship": "YES"
+    "accreditationEndDate": "2026-12-31"
   }
 }

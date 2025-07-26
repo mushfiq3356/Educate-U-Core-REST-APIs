@@ -5,41 +5,41 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/courses/advanced-courses
+  url: {{BASE_URL}}/courses/create
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "title": "Bachelor of Science in Computer Science",
-    "code": "BSC-CS-2024",
-  //   "hesaCourseId": null,
-    "type": "DEGREE",
-    "degreeType": "UNDERGRADUATE",
-  //   "diplomaType": null,
-    "intendedAward": "Bachelor of Science (Honours) in Computer Science",
-    "courseDescription": "A comprehensive undergraduate degree program in computer science covering algorithms, data structures, software engineering, artificial intelligence, and computational theory.",
+    "courseType": "ADVANCED_COURSE",
+    "title": "Master of Computer Science",
+    "code": "MCS-2024",
+    "startDate": "2024-09-01",
+    "endDate": "2026-06-30",
+    "hesaCourseId": "HESA-CS-001",
+    "advancedCourseType": "DEGREE",
+    "degreeType": "POSTGRADUATE",
+    "intendedAward": "Master of Science in Computer Science",
+    "courseDescription": "A comprehensive postgraduate program focusing on advanced computer science concepts including artificial intelligence, machine learning, distributed systems, and software engineering principles.",
     "studyModes": [
-      "INSTRUCTOR_LED"
+      "INSTRUCTOR_LED",
+      "BLENDED_OR_HYBRID_LEARNING"
     ],
-    "durationLength": 36,
-    "numberOfSemesters": 6,
-    "totalCredits": 360,
-    "yearOneExpectedCredits": 120,
-    "yearTwoExpectedCredits": 120,
-    "yearThreeExpectedCredits": 120,
-    "minimumPassingCreditsPerYear": 100,
-  //   "awardingBodyId": "university-uuid-789",
-    "tuitionFeePerYear": 25000,
-    "tuitionFeePerModule": 2500,
-    "accreditationBody": "Higher Education Quality Committee",
+    "durationLength": 24,
+    "numberOfSemesters": 4,
+    "totalCredits": 180,
+    "yearOneExpectedCredits": 90,
+    "yearTwoExpectedCredits": 90,
+    "minimumPassingCreditsPerYear": 80,
+  //   "awardingBodyId": "123e4567-e89b-12d3-a456-426614174000",
+    "accreditationBody": "British Computer Society",
     "accreditationStatus": "ACCREDITED",
-    "qualificationAim": "To develop competent computer science professionals with strong theoretical foundation and practical skills",
-    "approvalDate": "2024-02-01T00:00:00.000Z",
-    "reviewDate": "2029-02-01T00:00:00.000Z",
-    "courseLeader": "Prof. Michael Johnson",
-    "governanceNotes": "Programme validated by external panel"
-  //   "sessionId": "session-uuid-789"
+    "qualificationAim": "To provide advanced knowledge and skills in computer science for career advancement in technology sectors",
+    "approvalDate": "2023-12-15",
+    "reviewDate": "2027-12-15",
+    "courseLeader": "Dr. Sarah Johnson",
+    "governanceNotes": "Annual review scheduled. Curriculum updated to include latest AI developments."
+  //   "sessionId": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
   }
 }

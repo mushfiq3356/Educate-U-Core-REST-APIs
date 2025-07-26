@@ -4,27 +4,14 @@ meta {
   seq: 1
 }
 
-get {
-  url: {{BASE_URL}}/courses/cpd-courses
-  body: none
+post {
+  url: {{BASE_URL}}/courses/get
+  body: json
   auth: inherit
 }
 
 body:json {
   {
-    "title": "Advanced Project Management Certification",
-    "code": "APM-2024",
-    "courseDescription": "Comprehensive course covering advanced project management methodologies, risk assessment, and leadership skills for senior project managers.",
-    "studyModes": [
-      "SELF_PACED"
-    ],
-    "duration": 12,
-    "professionalAccreditation": "Project Management Institute (PMI) - PMP Certification",
-    "accreditationBodyCode": "PMI-001",
-    "accreditationStartDate": "2024-01-01",
-    "accreditationEndDate": "2027-12-31",
-    "fees": 2500,
-    "fundingModel": "EMPLOYER_FUNDED",
-    "eligibleForSponsorship": "YES"
+    "courseType": "CPD_COURSE"
   }
 }
