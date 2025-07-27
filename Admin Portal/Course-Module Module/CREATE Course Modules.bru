@@ -1,0 +1,26 @@
+meta {
+  name: CREATE Course Modules
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/course-modules/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "moduleType": "DEGREE",
+    "title": "Advanced Database Systems",
+    "code": "CS601",
+    "description": "This module covers advanced concepts in database systems including distributed databases, NoSQL technologies, database optimization, and modern data storage solutions. Students will learn to design and implement complex database architectures.",
+    "credit": 6,
+  //   "awardingBodyId": "awarding-body-001",
+    "estimatedTimeToComplete": 150,
+    "faculty": "Computer Science",
+    "learningOutcome": "Upon completion, students will be able to design distributed database systems, optimize database performance, implement NoSQL solutions, and evaluate different database technologies for specific use cases.",
+    "forumOrDiscussionBoard": true
+  }
+}
