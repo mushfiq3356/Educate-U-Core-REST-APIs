@@ -1,0 +1,39 @@
+meta {
+  name: CREATE Lesson
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/lessons/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Introduction to JavaScript",
+    "outcome": "Understand JavaScript basics such as variables, functions, and control flow.",
+    "type": "DIPLOMA",
+    "estimatedTimeToComplete": 45,
+    "contents": [
+      {
+        "title": "What is JavaScript?",
+        "description": "Overview of JavaScript and its role in web development.",
+        "type": "video",
+        "paths": [
+          "https://cdn.example.com/js/intro.mp4"
+        ]
+      },
+      {
+        "title": "Your First Script",
+        "description": "Write and run your first JavaScript code.",
+        "type": "code",
+        "paths": [
+          "https://cdn.example.com/js/first-script"
+        ]
+      }
+    ],
+    "courseModuleId": "9e2a34df-05d1-4dde-97c8-2fd48080d4ad"
+  }
+}

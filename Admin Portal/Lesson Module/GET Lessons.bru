@@ -1,0 +1,16 @@
+meta {
+  name: GET Lessons
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/lessons/get
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+  }
+}
