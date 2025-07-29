@@ -1,0 +1,22 @@
+meta {
+  name: ASSIGN Course Module
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/courses/assign-module
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "courseId": "0d29dd6c-891c-4218-9746-a88ea9bdd9bf",
+    "courseModuleId": "c53ed134-02ec-49c3-85e9-b8e744746af1"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
