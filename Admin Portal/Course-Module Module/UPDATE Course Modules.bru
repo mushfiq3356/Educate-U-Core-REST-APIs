@@ -1,20 +1,21 @@
 meta {
-  name: CREATE Course Modules
+  name: UPDATE Course Modules
   type: http
-  seq: 3
+  seq: 4
 }
 
-post {
-  url: {{BASE_URL}}/course-modules/create
+patch {
+  url: {{BASE_URL}}/course-modules/update
   body: json
   auth: inherit
 }
 
 body:json {
   {
+    "id": "8952d2f9-b8c5-4255-b3de-9d08cba1bdf5",
     "courseType": "ADVANCED_COURSE",
     "moduleType": "DEGREE",
-    "title": "Advanced Database Systems",
+    "title": "Advanced JS",
     "description": "This module covers advanced concepts in database systems including distributed databases, NoSQL technologies, database optimization, and modern data storage solutions. Students will learn to design and implement complex database architectures.",
     "credit": 6,
     "awardingBodyId": "3c53c811-1289-4ec1-8d15-b85195ea0ba4",

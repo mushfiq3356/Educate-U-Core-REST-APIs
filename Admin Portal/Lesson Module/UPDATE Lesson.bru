@@ -1,24 +1,26 @@
 meta {
-  name: CREATE Lesson
+  name: UPDATE Lesson
   type: http
-  seq: 2
+  seq: 3
 }
 
-post {
-  url: {{BASE_URL}}/lessons/create
+patch {
+  url: {{BASE_URL}}/lessons/update
   body: json
   auth: inherit
 }
 
 body:json {
   {
+    "id": "b45a37ad-4382-4339-a294-f65aa47e2ca6",
     "title": "Introduction to Python",
     "outcome": "Understand JavaScript basics such as variables, functions, and control flow.",
-    "type": "DEGREE",
+    "type": "DIPLOMA",
     "estimatedTimeToComplete": 45,
     "contents": [
       {
-        "title": "What is JavaScript?",
+        "id": "27d62bd0-33f8-4a3d-ae90-9e4997b20a49",
+        "title": "What is Demo?",
         "description": "Overview of JavaScript and its role in web development.",
         "type": "video",
         "paths": [
@@ -26,7 +28,7 @@ body:json {
         ]
       },
       {
-        "title": "Your First Script",
+        "title": "Your First Demo",
         "description": "Write and run your first JavaScript code.",
         "type": "code",
         "paths": [

@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/session?search=one
+  url: {{BASE_URL}}/session
   body: none
   auth: inherit
 }
 
 params:query {
-  search: one
+  ~search: one
 }
 
 body:json {

@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/awarding-bodies?search=cam
+  url: {{BASE_URL}}/awarding-bodies
   body: none
   auth: inherit
 }
 
 params:query {
-  search: cam
+  ~search: cam
 }
 
 body:json {

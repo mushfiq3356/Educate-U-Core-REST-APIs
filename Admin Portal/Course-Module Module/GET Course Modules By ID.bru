@@ -1,12 +1,12 @@
 meta {
-  name: GET Course Modules
+  name: GET Course Modules By ID
   type: http
-  seq: 1
+  seq: 2
 }
 
-post {
-  url: {{BASE_URL}}/course-modules/get
-  body: json
+get {
+  url: {{BASE_URL}}/course-modules/b9fecb87-a815-4592-970f-e244492b92aa
+  body: none
   auth: inherit
 }
 
