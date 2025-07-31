@@ -1,0 +1,21 @@
+meta {
+  name: Migrate Students
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/student-enrollment/migrate
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "studentEnrollmentId": "uuid"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

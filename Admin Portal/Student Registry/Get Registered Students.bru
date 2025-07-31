@@ -1,0 +1,21 @@
+meta {
+  name: Get Registered Students
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/student-roaster/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "page":1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

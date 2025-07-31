@@ -1,0 +1,22 @@
+meta {
+  name: Get Enrollments
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/student-enrollment/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "page":1,
+    "courseType":"DIPLOMA"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
