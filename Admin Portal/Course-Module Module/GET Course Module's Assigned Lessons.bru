@@ -1,0 +1,19 @@
+meta {
+  name: GET Course Module's Assigned Lessons
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/course-modules/8952d2f9-b8c5-4255-b3de-9d08cba1bdf5/assigned-lessons
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "page": 1,
+    "courseType": "ADVANCED_COURSE",
+    "searchTerm": "sys"
+  }
+}
