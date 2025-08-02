@@ -1,0 +1,20 @@
+meta {
+  name: UPDATE Course's Module Index
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{BASE_URL}}/courses/b207476b-3bbe-4bbc-9ab9-3ede52427917/update-module-index
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {
+      "moduleId": "09c39153-37e3-47ac-9926-85fdba8cbb48",
+      "index": 3
+    }
+  ]
+}

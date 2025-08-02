@@ -1,0 +1,20 @@
+meta {
+  name: GET Course-Module's Connected Courses
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/course-modules/f5ce156a-5d26-4970-ba00-bfa5f3bf69ef/connected-courses
+  body: none
+  auth: inherit
+}
+
+body:json {
+  [
+    {
+      "lessonId": "2a2e2c53-1bd0-44fd-adbf-412971337081",
+      "index": 3
+    }
+  ]
+}
