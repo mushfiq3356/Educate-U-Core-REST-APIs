@@ -1,0 +1,15 @@
+meta {
+  name: GET Course's Student List
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/courses/60c4a9d4-c89c-42e5-8218-189d19e7f01a/students?page=1
+  body: json
+  auth: inherit
+}
+
+params:query {
+  page: 1
+}
