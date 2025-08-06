@@ -1,0 +1,18 @@
+meta {
+  name: UPDATE Course's Module Semester
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/courses/2e415f28-a3a2-4f33-a41d-ca7546330bce/update-module-semester
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "moduleId": "020674af-977c-4d86-9549-bd4297e3a339",
+    "semesterNumber": 1
+  }
+}
