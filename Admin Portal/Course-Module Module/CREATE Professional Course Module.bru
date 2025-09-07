@@ -1,0 +1,23 @@
+meta {
+  name: CREATE Professional Course Module
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/course-modules/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "courseType": "PROFESSIONAL_COURSE",
+    "moduleType": "PROFESSIONAL_CERTIFICATE",
+    "title": "CISSP Domain 1: Security and Risk Management",
+    "description": "This module covers the first domain of the CISSP certification, focusing on security governance principles, legal and regulatory issues, professional ethics, and risk management concepts.",
+    "estimatedTimeToComplete": 120,
+    "learningOutcome": "Upon completion, students will be able able to apply security governance principles, understand legal and regulatory issues, demonstrate professional ethics, and implement risk management concepts.",
+    "forumOrDiscussionBoard": true
+  }
+}

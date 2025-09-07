@@ -1,11 +1,18 @@
 meta {
   name: GET All Courses
   type: http
-  seq: 1
+  seq: 5
 }
 
 post {
   url: {{BASE_URL}}/courses/get
   body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "page": 1,
+    "pageSize": 10
+  }
 }

@@ -1,0 +1,18 @@
+meta {
+  name: UPDATE Course Index in Session
+  type: http
+  seq: 9
+}
+
+patch {
+  url: {{BASE_URL}}/session/0ef84046-5df2-4c40-8349-e47e8a85db59/update-course-index
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "courseId": "83b7967b-ce2a-4924-b3fe-931651336118",
+    "newIndex": 1
+  }
+}

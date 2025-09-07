@@ -1,23 +1,10 @@
 meta {
   name: GET Course Module's Available Lessons
   type: http
-  seq: 6
+  seq: 10
 }
 
 get {
-  url: {{BASE_URL}}/course-modules/b9fecb87-a815-4592-970f-e244492b92aa/available-lessons?searchTerm=py
-  body: none
+  url: {{BASE_URL}}/course-modules/635b06f6-276a-406f-b767-67f073ff625c/available-lessons
   auth: inherit
-}
-
-params:query {
-  searchTerm: py
-}
-
-body:json {
-  {
-    "page": 1,
-    "courseType": "ADVANCED_COURSE",
-    "searchTerm": "sys"
-  }
 }

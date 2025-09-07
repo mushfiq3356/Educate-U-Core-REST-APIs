@@ -1,0 +1,17 @@
+meta {
+  name: GET Lesson by ID
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/lessons/getById
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": "5452b7bd-dc28-48b3-8755-ae67542357ec"
+  }
+}
