@@ -1,7 +1,7 @@
 meta {
   name: GET All Courses
   type: http
-  seq: 5
+  seq: 2
 }
 
 post {
@@ -13,6 +13,12 @@ post {
 body:json {
   {
     "page": 1,
-    "pageSize": 10
+    "pageSize": 10,
+    "courseType": "PROFESSIONAL_COURSE",
+    "searchTerm": "computer science",
+    "title": "Advanced Programming",
+    "status": "PUBLISHED",
+    "numberOfSemesters": 4,
+    "durationLength": 12
   }
 }
