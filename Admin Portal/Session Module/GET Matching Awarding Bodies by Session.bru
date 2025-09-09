@@ -1,0 +1,30 @@
+meta {
+  name: GET Matching Awarding Bodies by Session
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/session/a36cafc4-b11c-4267-8205-b8af75ed3f5c/matching-awarding-bodies
+  body: none
+  auth: inherit
+}
+
+docs {
+  ### Get Matching Awarding Bodies by Session
+  
+  Retrieves awarding bodies that have matching intake periods with the specified session.
+  
+  **Use Case**: This endpoint is used for cascading dropdown functionality in application creation forms to ensure students can only select valid combinations of sessions and awarding bodies.
+  
+  **Path Parameters**:
+  - `sessionId`: UUID of the session
+  
+  **Response**:
+  - `200`: Success with array of matching awarding bodies
+  - `404`: Session not found
+  
+  **Business Logic**:
+  - Only returns awarding bodies where the session's `intakePeriod` is present in the awarding body's `othersInfo.intakePeriod` array
+  - Only considers awarding bodies that have courses assigned to the session
+}

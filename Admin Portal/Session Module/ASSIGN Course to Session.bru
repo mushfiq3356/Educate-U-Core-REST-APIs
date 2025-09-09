@@ -1,7 +1,7 @@
 meta {
-  name: ASSIGN Course to Session
+  name: ASSIGN Course(s) to Session
   type: http
-  seq: 7
+  seq: 5
 }
 
 post {
@@ -12,6 +12,9 @@ post {
 
 body:json {
   {
-    "courseId": "83b7967b-ce2a-4924-b3fe-931651336118"
+    "courseIds": [
+      "83b7967b-ce2a-4924-b3fe-931651336118",
+      "4895efe7-9327-48ce-95b8-8658bdac3f6e"
+    ]
   }
 }
