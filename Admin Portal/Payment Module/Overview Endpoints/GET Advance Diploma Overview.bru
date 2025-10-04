@@ -1,0 +1,91 @@
+meta {
+  name: GET Advance Diploma Overview
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/payments/overview/advance-diploma
+  body: none
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Advance Diploma Overview
+  
+  Retrieves overview statistics specifically for advance diploma payment dashboard.
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Payment overview retrieved successfully",
+    "data": [
+      {
+        "id": 1,
+        "title": "Advance Payment System",
+        "amount": "185420000000000000000000000",
+        "progress": "92%",
+        "tag": "Paid"
+      },
+      {
+        "id": 2,
+        "title": "Advance Payment System",
+        "amount": "15230",
+        "progress": "76%",
+        "tag": "Installment"
+      },
+      {
+        "id": 3,
+        "title": "Advance Payment System",
+        "amount": "890",
+        "progress": "68%",
+        "tag": "Overdue"
+      }
+    ]
+  }
+  ```
+  
+  ## Overview Cards for Diploma Courses
+  
+  ### Paid
+  - **Description**: Total revenue from completed diploma course payments
+  - **Calculation**: Sum of all paid amounts for diploma course enrollments
+  - **Usage**: Revenue tracking for diploma programs
+  
+  ### Installment
+  - **Description**: Total amount in active installment plans for diploma courses
+  - **Calculation**: Sum of remaining amounts for installment-based diploma payments
+  - **Usage**: Cash flow management for shorter-duration programs
+  
+  ### Overdue
+  - **Description**: Total overdue amounts for diploma course payments
+  - **Calculation**: Sum of overdue payments for diploma enrollments
+  - **Usage**: Collections focus for diploma students
+  
+  ## Diploma-Specific Characteristics
+  - Generally lower fee amounts compared to degree courses
+  - Shorter payment periods with faster completion
+  - Higher completion rates due to practical focus
+  - More straightforward fee structures
+  
+  ## Key Differences from Degree Programs
+  - **Duration**: Shorter payment cycles (6-18 months vs 3-4 years)
+  - **Amounts**: Lower total fees but higher conversion rates
+  - **Structure**: Simpler fee structures, fewer installments
+  - **Risk**: Lower default rates due to practical outcomes
+  
+  ## Dashboard Usage
+  These metrics help diploma program administrators:
+  - Monitor quick revenue cycles
+  - Track completion rates for practical programs
+  - Manage collections for shorter-term commitments
+  - Compare performance against degree programs
+}

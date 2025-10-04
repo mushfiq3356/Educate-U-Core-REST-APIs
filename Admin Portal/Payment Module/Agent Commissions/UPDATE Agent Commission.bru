@@ -1,0 +1,116 @@
+meta {
+  name: UPDATE Agent Commission
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/payments/agent-commissions/{{commissionId}}
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "status": "APPROVED",
+    "isClawback": false,
+    "clawbackReason": null
+  }
+}
+
+vars:pre-request {
+  commissionId: replace_with_actual_commission_id
+}
+
+docs {
+  # Update Agent Commission
+  
+  Updates agent commission status and other properties. Commonly used for approval workflow and clawback management.
+  
+  ## URL Parameters
+  - `commissionId`: UUID of the agent commission to update
+  
+  ## Request Body (All fields optional)
+  ```json
+  {
+    "status": "APPROVED",           // Optional: PENDING, APPROVED, REJECTED, PAID
+    "paidAmount": 1200,             // Optional: Amount paid to agent
+    "paidDate": "2025-09-29T10:00:00.000Z",  // Optional: Date payment was made
+    "isClawback": false,            // Optional: Flag for clawback status
+    "clawbackReason": "Application cancelled",  // Optional: Reason for clawback
+    "clawbackDate": "2025-09-29T10:00:00.000Z"  // Optional: Date clawback was processed
+  }
+  ```
+  
+  ## Common Update Scenarios
+  
+  ### Approve Commission
+  ```json
+  {
+    "status": "APPROVED"
+  }
+  ```
+  
+  ### Process Payment
+  ```json
+  {
+    "status": "PAID",
+    "paidAmount": 1200,
+    "paidDate": "2025-09-29T10:00:00.000Z"
+  }
+  ```
+  
+  ### Reject Commission
+  ```json
+  {
+    "status": "REJECTED"
+  }
+  ```
+  
+  ### Flag for Clawback
+  ```json
+  {
+    "isClawback": true,
+    "clawbackReason": "Student withdrew after enrollment",
+    "clawbackDate": "2025-09-29T10:00:00.000Z"
+  }
+  ```
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Agent commission updated successfully",
+    "data": {
+      "id": "uuid",
+      "agentId": "uuid",
+      "applicationId": "uuid",
+      "baseAmount": 12000,
+      "commissionRate": 10,
+      "commissionAmount": 1200,
+      "status": "APPROVED",
+      "paidAmount": 0,
+      "paidDate": null,
+      "isClawback": false,
+      "clawbackReason": null,
+      "clawbackDate": null,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:30:00.000Z"
+    }
+  }
+  ```
+  
+  ## Business Rules
+  - Only PENDING commissions can be approved or rejected
+  - APPROVED commissions can be marked as PAID
+  - Clawbacks can be applied to any commission status
+  - paidAmount cannot exceed commissionAmount
+}

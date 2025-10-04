@@ -1,0 +1,87 @@
+meta {
+  name: GET Promotional Codes
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/payments/promotional-codes?page=1&limit=10&status=ACTIVE
+  body: none
+  auth: none
+}
+
+query {
+  page: 1
+  limit: 10
+  status: ACTIVE
+  ~codeName: SUMMER10
+  ~discountType: PERCENTAGE
+  ~startDate: 2025-01-01
+  ~endDate: 2025-12-31
+  ~createdUserId: {{userId}}
+  ~courseId: {{courseId}}
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Promotional Codes
+  
+  Retrieves a paginated list of promotional codes with optional filtering.
+  
+  ## Query Parameters
+  - `page` (optional): Page number for pagination (default: 1)
+  - `limit` (optional): Number of items per page (default: 10)
+  - `status` (optional): Filter by status (ACTIVE, INACTIVE, EXPIRED)
+  - `codeName` (optional): Filter by code name (partial match)
+  - `discountType` (optional): Filter by discount type (PERCENTAGE, FIXED_AMOUNT, CDP)
+  - `startDate` (optional): Filter by start date (YYYY-MM-DD)
+  - `endDate` (optional): Filter by end date (YYYY-MM-DD)
+  - `createdUserId` (optional): Filter by creator user ID
+  - `courseId` (optional): Filter by associated course ID
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Promotional codes retrieved successfully",
+    "data": {
+      "promotionalCodes": [
+        {
+          "id": "uuid",
+          "codeName": "SUMMER10",
+          "discountValue": 10,
+          "startDate": "2025-01-01",
+          "endDate": "2025-01-31",
+          "createdUser": "admin",
+          "status": "active",
+          "createdAt": "2025-01-01",
+          "updatedAt": "2025-01-15",
+          "usageCount": 25,
+          "maxUsage": 100,
+          "courseList": [
+            {
+              "courseType": "PROFESSIONAL_COURSE",
+              "courseName": "Introduction to JavaScript",
+              "startDate": "2025-09-01",
+              "endDate": "2025-12-15"
+            }
+          ]
+        }
+      ]
+    },
+    "pagination": {
+      "count": 5,
+      "total": 20,
+      "page": 1,
+      "perPage": 10,
+      "totalPages": 2
+    }
+  }
+  ```
+}

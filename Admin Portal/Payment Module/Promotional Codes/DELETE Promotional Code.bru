@@ -1,0 +1,55 @@
+meta {
+  name: DELETE Promotional Code
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/payments/promotional-codes/{{promoCodeId}}
+  body: none
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+vars:pre-request {
+  promoCodeId: replace_with_actual_promo_code_id
+}
+
+docs {
+  # Delete Promotional Code
+  
+  Soft deletes a promotional code by setting its status to INACTIVE. This preserves historical data while preventing future use.
+  
+  ## URL Parameters
+  - `promoCodeId`: UUID of the promotional code to delete
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Promotional code deleted successfully",
+    "data": null
+  }
+  ```
+  
+  ## Notes
+  - This is a soft delete operation - the promotional code is not removed from the database
+  - The code's status is set to INACTIVE to prevent future use
+  - Historical usage data and associations are preserved
+  - Already applied promotional codes on existing payment records remain valid
+  
+  ## Error Response
+  ```json
+  {
+    "status": "error",
+    "statusCode": 404,
+    "message": "Promotional code not found"
+  }
+  ```
+}

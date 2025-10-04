@@ -1,0 +1,86 @@
+meta {
+  name: GET Advance Degree Course Fees
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/payments/course-fees/advance-degree?page=1&limit=10
+  body: none
+  auth: none
+}
+
+query {
+  page: 1
+  limit: 10
+  ~courseType: ADVANCED_COURSE
+  ~status: ACTIVE
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Advance Degree Course Fees
+  
+  Retrieves course fees specifically for advance degree courses with overview information.
+  
+  ## Query Parameters
+  - `page` (optional): Page number for pagination (default: 1)
+  - `limit` (optional): Number of items per page (default: 10)
+  - Additional filters inherited from general course fees endpoint
+  
+  ## Response Format
+  Same as general course fees endpoint, but filtered for degree courses:
+  
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Course fees retrieved successfully",
+    "data": {
+      "courseList": [
+        {
+          "id": "uuid",
+          "courseName": "Computer Science BSc",
+          "overallCourseFee": 15000,
+          "courseFeeLogHistory": [],
+          "tieredPricing": [
+            {
+              "tierName": "Early Bird",
+              "price": 12000,
+              "startDate": "2025-09-01",
+              "endDate": "2025-09-15"
+            },
+            {
+              "tierName": "Regular",
+              "price": 15000,
+              "startDate": "2025-09-16",
+              "endDate": "2025-10-31"
+            }
+          ],
+          "startDate": "2025-09-01",
+          "endDate": "2025-10-31",
+          "currencyType": "USD",
+          "promoCodeStatus": "active",
+          "createdAt": "2025-08-26T10:00:00Z",
+          "updatedAt": "2025-08-26T10:00:00Z"
+        }
+      ]
+    },
+    "pagination": {
+      "count": 5,
+      "total": 20,
+      "page": 1,
+      "perPage": 10,
+      "totalPages": 2
+    }
+  }
+  ```
+  
+  ## Overview Cards Data
+  Used to populate overview statistics for advance degree payment dashboard.
+}

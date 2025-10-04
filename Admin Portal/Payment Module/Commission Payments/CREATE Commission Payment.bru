@@ -1,0 +1,102 @@
+meta {
+  name: CREATE Commission Payment
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/payments/commission-payments
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "agentCommissionId": "{{commissionId}}",
+    "amount": 600,
+    "paymentMethod": "BANK_TRANSFER",
+    "status": "PAID",
+    "paymentDate": "2025-09-29T10:00:00.000Z",
+    "transactionId": "TXN-COMM-123456",
+    "reference": "COMM-REF-2025-09-001",
+    "notes": "Commission payment for September referrals"
+  }
+}
+
+docs {
+  # Create Commission Payment
+  
+  Records a new commission payment transaction for an approved agent commission.
+  
+  ## Request Body
+  ```json
+  {
+    "agentCommissionId": "uuid",     // Required: Agent commission ID
+    "amount": 600,                   // Required: Payment amount
+    "paymentMethod": "BANK_TRANSFER", // Required: CARD, BANK_TRANSFER, CASH, ONLINE
+    "status": "PAID",                // Required: PAID, PENDING, APPROVED, REJECTED, FAILED
+    "paymentDate": "2025-09-29T10:00:00.000Z",  // Required: Payment date
+    "transactionId": "TXN-COMM-123456",         // Optional: External transaction ID
+    "reference": "COMM-REF-2025-09-001",       // Optional: Payment reference
+    "notes": "Commission payment for September referrals"  // Optional: Additional notes
+  }
+  ```
+  
+  ## Payment Processing Flow
+  1. Commission must be in "APPROVED" status
+  2. Create commission payment record
+  3. If payment status is "PAID" or "APPROVED":
+     - Update commission's `paidAmount`
+     - Update commission's `paidDate`
+     - Mark commission as "PAID" if fully paid
+  
+  ## Automatic Updates
+  When a successful payment is recorded:
+  - Commission's `paidAmount` increases by payment amount
+  - Commission's `paidDate` is updated
+  - Commission's `status` becomes "PAID" if `paidAmount` >= `commissionAmount`
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Commission payment created successfully",
+    "data": {
+      "id": "uuid",
+      "agentCommissionId": "uuid",
+      "amount": 600,
+      "paymentMethod": "BANK_TRANSFER",
+      "status": "PAID",
+      "paymentDate": "2025-09-29T10:00:00.000Z",
+      "transactionId": "TXN-COMM-123456",
+      "reference": "COMM-REF-2025-09-001",
+      "notes": "Commission payment for September referrals",
+      "processedBy": null,
+      "processedDate": null,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:00:00.000Z"
+    }
+  }
+  ```
+  
+  ## Validation Rules
+  - `agentCommissionId` must reference an existing commission
+  - Commission must be in "APPROVED" or "PENDING" status
+  - `amount` must be positive and not exceed remaining commission amount
+  - `paymentDate` must be a valid date
+  - Payment method must be one of the allowed values
+  
+  ## Use Cases
+  - **Partial Payments**: Multiple payments for large commissions
+  - **Payment Tracking**: Record payment attempts and outcomes
+  - **Reconciliation**: Match internal records with bank statements
+  - **Audit Trail**: Maintain complete payment history
+}

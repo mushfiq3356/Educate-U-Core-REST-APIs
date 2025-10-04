@@ -1,0 +1,92 @@
+meta {
+  name: CREATE Agent Commission
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/payments/agent-commissions
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "agentId": "{{agentId}}",
+    "applicationId": "{{applicationId}}",
+    "baseAmount": 12000,
+    "commissionRate": 10
+  }
+}
+
+docs {
+  # Create Agent Commission
+  
+  Creates a new commission record for an agent based on an application referral.
+  
+  ## Request Body
+  ```json
+  {
+    "agentId": "uuid",          // Required: Agent user ID
+    "applicationId": "uuid",    // Required: Application ID this commission is for
+    "baseAmount": 12000,        // Required: Base amount for commission calculation
+    "commissionRate": 10        // Required: Commission percentage (0-100)
+  }
+  ```
+  
+  ## Commission Calculation
+  The system automatically calculates the commission amount:
+  ```
+  Commission Amount = (Base Amount × Commission Rate) / 100
+  Example: (12000 × 10) / 100 = 1200
+  ```
+  
+  ## Use Cases
+  1. **Application Referral**: Agent refers a student who submits an application
+  2. **Enrollment Commission**: Commission triggered when student enrolls
+  3. **Payment-Based Commission**: Commission based on student's fee payment
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Agent commission created successfully",
+    "data": {
+      "id": "uuid",
+      "agentId": "uuid",
+      "applicationId": "uuid",
+      "baseAmount": 12000,
+      "commissionRate": 10,
+      "commissionAmount": 1200,
+      "status": "PENDING",
+      "paidAmount": 0,
+      "paidDate": null,
+      "isClawback": false,
+      "clawbackReason": null,
+      "clawbackDate": null,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:00:00.000Z"
+    }
+  }
+  ```
+  
+  ## Validation Rules
+  - `agentId` must reference an existing user with agent role
+  - `applicationId` must reference an existing application
+  - `baseAmount` must be positive
+  - `commissionRate` must be between 0 and 100
+  - Duplicate commissions for same agent+application combination may be prevented
+  
+  ## Automatic Status
+  - New commissions start with status "PENDING"
+  - Requires manual approval before payment processing
+  - Commission amount is automatically calculated and stored
+}

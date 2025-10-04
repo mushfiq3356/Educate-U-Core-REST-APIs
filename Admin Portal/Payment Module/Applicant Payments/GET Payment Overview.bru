@@ -1,0 +1,63 @@
+meta {
+  name: GET Payment Overview
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/payments/payment-overview
+  body: none
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Payment Overview
+  
+  Retrieves overview statistics for the advance payment system dashboard.
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Payment overview retrieved successfully",
+    "data": [
+      {
+        "id": 1,
+        "title": "Advance Payment System",
+        "amount": "250436789021345678902346890",
+        "progress": "84%",
+        "tag": "Paid"
+      },
+      {
+        "id": 2,
+        "title": "Advance Payment System",
+        "amount": "25044",
+        "progress": "84%",
+        "tag": "Installment"
+      },
+      {
+        "id": 3,
+        "title": "Advance Payment System",
+        "amount": "250",
+        "progress": "84%",
+        "tag": "Overdue"
+      }
+    ]
+  }
+  ```
+  
+  ## Overview Cards
+  - **Paid**: Total amount of completed payments
+  - **Installment**: Total amount in installment plans
+  - **Overdue**: Total amount of overdue payments
+  
+  ## Usage
+  This endpoint is used to populate dashboard overview cards showing payment statistics and trends.
+}

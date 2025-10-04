@@ -1,0 +1,88 @@
+meta {
+  name: ADD Payment History
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/payments/payment-history
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "paymentRecordId": "{{paymentRecordId}}",
+    "amount": 2000,
+    "paymentMethod": "CARD",
+    "status": "PAID",
+    "paymentDate": "2025-09-29T10:00:00.000Z",
+    "transactionId": "TXN123456789",
+    "reference": "REF-2025-09-001",
+    "notes": "Payment received via online portal"
+  }
+}
+
+docs {
+  # Add Payment History
+  
+  Adds a new payment transaction to a payment record. Automatically updates the payment record when successful payments are recorded.
+  
+  ## Request Body
+  ```json
+  {
+    "paymentRecordId": "uuid",        // Required: Payment record ID
+    "amount": 2000,                   // Required: Payment amount
+    "paymentMethod": "CARD",          // Required: CARD, BANK_TRANSFER, CASH, ONLINE
+    "status": "PAID",                 // Required: PAID, PENDING, APPROVED, REJECTED, FAILED
+    "paymentDate": "2025-09-29T10:00:00.000Z",  // Required: Payment date
+    "transactionId": "TXN123456789",  // Optional: External transaction ID
+    "reference": "REF-2025-09-001",   // Optional: Payment reference
+    "notes": "Payment received via online portal"  // Optional: Additional notes
+  }
+  ```
+  
+  ## Automatic Updates
+  When a payment with status "PAID" or "APPROVED" is added:
+  - Payment record's `paidAmount` is increased
+  - Payment record's `remainingAmount` is decreased
+  - Payment record's `installmentsPaid` is incremented
+  - Payment record's `paymentStatus` is set to "PAID" if fully paid
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Payment history added successfully",
+    "data": {
+      "id": "uuid",
+      "paymentRecordId": "uuid",
+      "amount": 2000,
+      "paymentMethod": "CARD",
+      "status": "PAID",
+      "paymentDate": "2025-09-29T10:00:00.000Z",
+      "transactionId": "TXN123456789",
+      "reference": "REF-2025-09-001",
+      "notes": "Payment received via online portal",
+      "processedBy": null,
+      "processedDate": null,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:00:00.000Z"
+    }
+  }
+  ```
+  
+  ## Validation Rules
+  - `paymentRecordId` must reference an existing payment record
+  - `amount` must be positive
+  - `paymentDate` must be a valid date
+  - Payment method must be one of the allowed values
+}

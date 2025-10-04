@@ -1,0 +1,131 @@
+meta {
+  name: CREATE Degree Course Fee Structure
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/payments/course-fees/degree-structure
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "session": "{{sessionId}}",
+    "course": "{{courseId}}",
+    "overallcoursefee": 10000,
+    "agreementStatus": true,
+    "semesters": [
+      {
+        "semesterName": "Semester 1",
+        "semesterFee": 5000,
+        "modules": [
+          {
+            "module": "Introduction to Computer Science",
+            "credit": 4,
+            "fee": 2500
+          },
+          {
+            "module": "Mathematics for Computing",
+            "credit": 4,
+            "fee": 2500
+          }
+        ]
+      },
+      {
+        "semesterName": "Semester 2",
+        "semesterFee": 5000,
+        "modules": [
+          {
+            "module": "Data Structures and Algorithms",
+            "credit": 4,
+            "fee": 2500
+          },
+          {
+            "module": "Database Systems",
+            "credit": 4,
+            "fee": 2500
+          }
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  # Create Degree Course Fee Structure
+  
+  Creates a comprehensive fee structure for degree courses with semester and module breakdown. Used when a user selects session and course to load the fee structure.
+  
+  ## Request Body
+  ```json
+  {
+    "session": "uuid",                // Required: Session ID
+    "course": "uuid",                 // Required: Course ID
+    "overallcoursefee": 10000,        // Required: Total course fee
+    "agreementStatus": true,          // Required: Agreement status for editing
+    "semesters": [                    // Required: Array of semesters
+      {
+        "semesterName": "Semester 1", // Required: Semester name
+        "semesterFee": 5000,          // Required: Total semester fee
+        "modules": [                  // Required: Array of modules
+          {
+            "module": "Introduction to Computer Science",  // Required: Module name
+            "credit": 4,              // Required: Credit hours
+            "fee": 2500               // Required: Module fee
+          }
+        ]
+      }
+    ]
+  }
+  ```
+  
+  ## Workflow
+  1. User selects session and course on the degree fee creation page
+  2. System loads existing fee structure via GET endpoint
+  3. If `agreementStatus` is true, user can edit `overallcoursefee`
+  4. User can modify semester fees and module details
+  5. Submit updated structure via this endpoint
+  
+  ## Features
+  - **Semester Breakdown**: Divide course into multiple semesters
+  - **Module Granularity**: Individual fee tracking per module
+  - **Credit System**: Track credit hours for each module
+  - **Agreement Control**: Edit permissions based on agreement status
+  - **Historical Tracking**: Maintains change log for fee modifications
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Course fee structure created successfully",
+    "data": {
+      "id": "uuid",
+      "courseId": "uuid",
+      "sessionId": "uuid",
+      "overallCourseFee": 10000,
+      "agreementStatus": true,
+      "status": "ACTIVE",
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:00:00.000Z"
+    }
+  }
+  ```
+  
+  ## Validation Rules
+  - `session` and `course` must reference existing entities
+  - `overallcoursefee` must be positive
+  - At least one semester is required
+  - Each semester must have at least one module
+  - All module credits and fees must be positive
+  - Semester fees should logically relate to module fees
+}

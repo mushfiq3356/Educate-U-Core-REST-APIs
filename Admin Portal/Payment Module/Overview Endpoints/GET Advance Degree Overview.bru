@@ -1,0 +1,85 @@
+meta {
+  name: GET Advance Degree Overview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/payments/overview/advance-degree
+  body: none
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Advance Degree Overview
+  
+  Retrieves overview statistics specifically for advance degree payment dashboard.
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Payment overview retrieved successfully",
+    "data": [
+      {
+        "id": 1,
+        "title": "Advance Payment System",
+        "amount": "250436789021345678902346890",
+        "progress": "84%",
+        "tag": "Paid"
+      },
+      {
+        "id": 2,
+        "title": "Advance Payment System",
+        "amount": "25044",
+        "progress": "84%",
+        "tag": "Installment"
+      },
+      {
+        "id": 3,
+        "title": "Advance Payment System",
+        "amount": "250",
+        "progress": "84%",
+        "tag": "Overdue"
+      }
+    ]
+  }
+  ```
+  
+  ## Overview Cards for Degree Courses
+  
+  ### Paid
+  - **Description**: Total revenue from completed degree course payments
+  - **Calculation**: Sum of all paid amounts for degree course enrollments
+  - **Usage**: Revenue tracking for degree programs
+  
+  ### Installment
+  - **Description**: Total amount in active installment plans for degree courses
+  - **Calculation**: Sum of remaining amounts for installment-based degree payments
+  - **Usage**: Cash flow planning and installment management
+  
+  ### Overdue
+  - **Description**: Total overdue amounts for degree course payments
+  - **Calculation**: Sum of overdue payments for degree enrollments
+  - **Usage**: Collections and follow-up prioritization
+  
+  ## Degree-Specific Metrics
+  - Higher fee amounts compared to diploma courses
+  - Longer payment periods and more complex installment plans
+  - Greater emphasis on payment completion rates
+  - Integration with semester-based fee structures
+  
+  ## Dashboard Usage
+  These metrics provide degree program administrators with:
+  - Financial performance overview
+  - Payment collection efficiency
+  - Outstanding debt monitoring
+  - Revenue forecasting data
+}

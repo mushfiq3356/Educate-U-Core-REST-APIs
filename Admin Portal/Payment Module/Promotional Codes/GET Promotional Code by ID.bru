@@ -1,0 +1,80 @@
+meta {
+  name: GET Promotional Code by ID
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/payments/promotional-codes/{{promoCodeId}}
+  body: none
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+vars:pre-request {
+  promoCodeId: replace_with_actual_promo_code_id
+}
+
+docs {
+  # Get Promotional Code by ID
+  
+  Retrieves a specific promotional code by its ID with full details including associated courses.
+  
+  ## URL Parameters
+  - `promoCodeId`: UUID of the promotional code to retrieve
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Promotional code retrieved successfully",
+    "data": {
+      "id": "uuid",
+      "codeName": "SUMMER10",
+      "discountType": "PERCENTAGE",
+      "discountValue": 10,
+      "startDate": "2025-01-01T00:00:00.000Z",
+      "endDate": "2025-01-31T23:59:59.000Z",
+      "status": "ACTIVE",
+      "createdUserId": "uuid",
+      "usageCount": 25,
+      "maxUsage": 100,
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "updatedAt": "2025-01-15T00:00:00.000Z",
+      "createdUser": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "username": "admin"
+      },
+      "promotionalCodeCourses": [
+        {
+          "id": "uuid",
+          "courseId": "uuid",
+          "course": {
+            "id": "uuid",
+            "title": "Introduction to JavaScript",
+            "courseType": "PROFESSIONAL_COURSE",
+            "startDate": "2025-09-01T00:00:00.000Z",
+            "endDate": "2025-12-15T23:59:59.000Z"
+          }
+        }
+      ]
+    }
+  }
+  ```
+  
+  ## Error Response
+  ```json
+  {
+    "status": "error",
+    "statusCode": 404,
+    "message": "Promotional code not found"
+  }
+  ```
+}

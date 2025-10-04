@@ -1,0 +1,90 @@
+meta {
+  name: UPDATE Promotional Code
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/payments/promotional-codes/{{promoCodeId}}
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "codeName": "WINTER25_UPDATED",
+    "discountType": "FIXED_AMOUNT",
+    "discountValue": 50,
+    "startDate": "2025-12-01T00:00:00.000Z",
+    "endDate": "2025-12-31T23:59:59.000Z",
+    "status": "INACTIVE",
+    "courseIds": [
+      "{{courseId}}"
+    ],
+    "maxUsage": 100
+  }
+}
+
+vars:pre-request {
+  promoCodeId: replace_with_actual_promo_code_id
+}
+
+docs {
+  # Update Promotional Code
+  
+  Updates an existing promotional code. All fields are optional - only provided fields will be updated.
+  
+  ## URL Parameters
+  - `promoCodeId`: UUID of the promotional code to update
+  
+  ## Request Body (All fields optional)
+  ```json
+  {
+    "codeName": "WINTER25_UPDATED",   // Optional: New code name (must be unique)
+    "discountType": "FIXED_AMOUNT",   // Optional: PERCENTAGE, FIXED_AMOUNT, or CDP
+    "discountValue": 50,              // Optional: New discount amount/percentage
+    "startDate": "2025-12-01T00:00:00.000Z",  // Optional: New start date
+    "endDate": "2025-12-31T23:59:59.000Z",    // Optional: New end date
+    "status": "INACTIVE",             // Optional: ACTIVE or INACTIVE
+    "courseIds": ["uuid"],            // Optional: New array of course IDs
+    "maxUsage": 100                   // Optional: New maximum usage limit
+  }
+  ```
+  
+  ## Validation Rules
+  - `codeName` must be unique if changed
+  - `discountValue` must be non-negative if provided
+  - `endDate` must be after `startDate` if both are provided
+  - `maxUsage` must be positive if provided
+  - All `courseIds` must reference existing courses
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Promotional code updated successfully",
+    "data": {
+      "id": "uuid",
+      "codeName": "WINTER25_UPDATED",
+      "discountType": "FIXED_AMOUNT",
+      "discountValue": 50,
+      "startDate": "2025-12-01T00:00:00.000Z",
+      "endDate": "2025-12-31T23:59:59.000Z",
+      "status": "INACTIVE",
+      "createdUserId": "uuid",
+      "usageCount": 0,
+      "maxUsage": 100,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:30:00.000Z"
+    }
+  }
+  ```
+}

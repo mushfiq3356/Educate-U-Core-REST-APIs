@@ -1,0 +1,86 @@
+meta {
+  name: UPDATE Payment Status
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/payments/applicant-payments/{{paymentRecordId}}
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "paymentStatus": "PAID",
+    "paidAmount": 12000,
+    "remainingAmount": 0,
+    "installmentsPaid": 6,
+    "lastReminderDate": "2025-09-29T10:00:00.000Z"
+  }
+}
+
+vars:pre-request {
+  paymentRecordId: replace_with_actual_payment_record_id
+}
+
+docs {
+  # Update Payment Status
+  
+  Updates payment record details including status, amounts, and reminder dates. Used for the "check status" feature.
+  
+  ## URL Parameters
+  - `paymentRecordId`: UUID of the payment record to update
+  
+  ## Request Body (All fields optional)
+  ```json
+  {
+    "paymentStatus": "PAID",          // Optional: PENDING, PAID, OVERDUE, CANCELLED
+    "paidAmount": 12000,              // Optional: Total amount paid
+    "remainingAmount": 0,             // Optional: Remaining amount to be paid
+    "installmentsPaid": 6,            // Optional: Number of installments paid
+    "nextPaymentDate": "2025-10-01T00:00:00.000Z",  // Optional: Next payment date
+    "nextPaymentAmount": 2000,        // Optional: Next payment amount
+    "lastReminderDate": "2025-09-29T10:00:00.000Z"  // Optional: Last reminder sent date
+  }
+  ```
+  
+  ## Common Use Cases
+  1. **Mark as Paid**: Set `paymentStatus` to "PAID" and update amounts
+  2. **Mark as Overdue**: Set `paymentStatus` to "OVERDUE"
+  3. **Update Reminder**: Set `lastReminderDate` when reminder is sent
+  4. **Update Next Payment**: Modify `nextPaymentDate` and `nextPaymentAmount`
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Payment record updated successfully",
+    "data": {
+      "id": "uuid",
+      "applicantId": "uuid",
+      "totalFee": 12000,
+      "paidAmount": 12000,
+      "remainingAmount": 0,
+      "paymentPlan": "INSTALLMENT",
+      "paymentStatus": "PAID",
+      "installmentsPaid": 6,
+      "totalInstallments": 6,
+      "nextPaymentDate": null,
+      "nextPaymentAmount": null,
+      "dueDate": "2025-10-01T00:00:00.000Z",
+      "lastReminderDate": "2025-09-29T10:00:00.000Z",
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:30:00.000Z"
+    }
+  }
+  ```
+}

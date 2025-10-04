@@ -1,0 +1,85 @@
+meta {
+  name: CREATE Payment Record
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/payments/applicant-payments
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "applicantId": "{{applicationId}}",
+    "totalFee": 12000,
+    "paymentPlan": "INSTALLMENT",
+    "totalInstallments": 6,
+    "nextPaymentDate": "2025-10-01T00:00:00.000Z",
+    "nextPaymentAmount": 2000,
+    "dueDate": "2025-10-01T00:00:00.000Z",
+    "promotionalCodeId": "{{promoCodeId}}"
+  }
+}
+
+docs {
+  # Create Payment Record
+  
+  Creates a new payment record for an applicant with optional promotional code application.
+  
+  ## Request Body
+  ```json
+  {
+    "applicantId": "uuid",            // Required: Application ID
+    "totalFee": 12000,                // Required: Total fee amount
+    "paymentPlan": "INSTALLMENT",     // Required: FULL_PAYMENT or INSTALLMENT
+    "totalInstallments": 6,           // Optional: Required if paymentPlan is INSTALLMENT
+    "nextPaymentDate": "2025-10-01T00:00:00.000Z",  // Optional: Next payment due date
+    "nextPaymentAmount": 2000,        // Optional: Next payment amount
+    "dueDate": "2025-10-01T00:00:00.000Z",          // Optional: Payment due date
+    "promotionalCodeId": "uuid"       // Optional: Promotional code to apply
+  }
+  ```
+  
+  ## Validation Rules
+  - `applicantId` must reference an existing application
+  - `totalFee` must be positive
+  - If `paymentPlan` is INSTALLMENT, `totalInstallments` must be > 1
+  - `promotionalCodeId` must reference an existing and active promotional code
+  - `nextPaymentAmount` must be positive if provided
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Payment record created successfully",
+    "data": {
+      "id": "uuid",
+      "applicantId": "uuid",
+      "totalFee": 12000,
+      "paidAmount": 0,
+      "remainingAmount": 12000,
+      "paymentPlan": "INSTALLMENT",
+      "paymentStatus": "PENDING",
+      "installmentsPaid": 0,
+      "totalInstallments": 6,
+      "nextPaymentDate": "2025-10-01T00:00:00.000Z",
+      "nextPaymentAmount": 2000,
+      "dueDate": "2025-10-01T00:00:00.000Z",
+      "promotionalCodeId": "uuid",
+      "discountApplied": 0,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:00:00.000Z"
+    }
+  }
+  ```
+}

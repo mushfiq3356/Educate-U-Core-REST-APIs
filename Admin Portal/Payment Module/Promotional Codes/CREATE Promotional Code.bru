@@ -1,0 +1,83 @@
+meta {
+  name: CREATE Promotional Code
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/payments/promotional-codes
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "codeName": "WINTER25",
+    "discountType": "PERCENTAGE",
+    "discountValue": 25,
+    "startDate": "2025-12-01T00:00:00.000Z",
+    "endDate": "2025-12-31T23:59:59.000Z",
+    "status": "ACTIVE",
+    "courseIds": [
+      "{{courseId}}"
+    ],
+    "maxUsage": 50
+  }
+}
+
+docs {
+  # Create Promotional Code
+  
+  Creates a new promotional code with optional course associations.
+  
+  ## Request Body
+  ```json
+  {
+    "codeName": "WINTER25",           // Required: Unique promotional code name
+    "discountType": "PERCENTAGE",     // Required: PERCENTAGE, FIXED_AMOUNT, or CDP
+    "discountValue": 25,              // Required: Discount amount/percentage
+    "startDate": "2025-12-01T00:00:00.000Z",  // Required: Start date
+    "endDate": "2025-12-31T23:59:59.000Z",    // Required: End date
+    "status": "ACTIVE",               // Required: ACTIVE or INACTIVE
+    "courseIds": ["uuid"],            // Optional: Array of course IDs
+    "maxUsage": 50                    // Optional: Maximum usage limit
+  }
+  ```
+  
+  ## Validation Rules
+  - `codeName` must be unique across all promotional codes
+  - `discountValue` must be non-negative
+  - `endDate` must be after `startDate`
+  - `maxUsage` must be positive if provided
+  - All `courseIds` must reference existing courses
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Promotional code created successfully",
+    "data": {
+      "id": "uuid",
+      "codeName": "WINTER25",
+      "discountType": "PERCENTAGE",
+      "discountValue": 25,
+      "startDate": "2025-12-01T00:00:00.000Z",
+      "endDate": "2025-12-31T23:59:59.000Z",
+      "status": "ACTIVE",
+      "createdUserId": "uuid",
+      "usageCount": 0,
+      "maxUsage": 50,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:00:00.000Z"
+    }
+  }
+  ```
+}

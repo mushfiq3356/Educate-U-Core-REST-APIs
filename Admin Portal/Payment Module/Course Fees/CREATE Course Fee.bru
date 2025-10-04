@@ -1,0 +1,109 @@
+meta {
+  name: CREATE Course Fee
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/payments/course-fees
+  body: json
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "courseId": "{{courseId}}",
+    "sessionId": "{{sessionId}}",
+    "overallCourseFee": 1500,
+    "currencyType": "USD",
+    "promoCodeStatus": "ACTIVE",
+    "startDate": "2025-10-01T00:00:00.000Z",
+    "endDate": "2025-12-31T23:59:59.000Z",
+    "agreementStatus": true,
+    "tieredPricing": [
+      {
+        "tierName": "Early Bird",
+        "price": 1200,
+        "startDate": "2025-10-01T00:00:00.000Z",
+        "endDate": "2025-10-10T23:59:59.000Z"
+      },
+      {
+        "tierName": "Regular",
+        "price": 1500,
+        "startDate": "2025-10-11T00:00:00.000Z",
+        "endDate": "2025-12-31T23:59:59.000Z"
+      }
+    ]
+  }
+}
+
+docs {
+  # Create Course Fee
+  
+  Creates a new course fee structure with optional tiered pricing.
+  
+  ## Request Body
+  ```json
+  {
+    "courseId": "uuid",               // Required: Course ID
+    "sessionId": "uuid",              // Optional: Academic session ID
+    "overallCourseFee": 1500,         // Required: Base course fee
+    "currencyType": "USD",            // Optional: USD, EUR, GBP, PKR (default: USD)
+    "promoCodeStatus": "ACTIVE",      // Optional: ACTIVE, INACTIVE, UPCOMING (default: INACTIVE)
+    "startDate": "2025-10-01T00:00:00.000Z",  // Required: Fee validity start date
+    "endDate": "2025-12-31T23:59:59.000Z",    // Required: Fee validity end date
+    "agreementStatus": true,          // Optional: For degree courses (default: false)
+    "tieredPricing": [                // Optional: Tiered pricing structure
+      {
+        "tierName": "Early Bird",
+        "price": 1200,
+        "startDate": "2025-10-01T00:00:00.000Z",
+        "endDate": "2025-10-10T23:59:59.000Z"
+      }
+    ]
+  }
+  ```
+  
+  ## Tiered Pricing
+  - Allows different pricing for different time periods
+  - Common tiers: Early Bird, Regular, Late Registration
+  - Each tier has its own price and validity period
+  - Useful for promotional pricing strategies
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Course fee created successfully",
+    "data": {
+      "id": "uuid",
+      "courseId": "uuid",
+      "sessionId": "uuid",
+      "overallCourseFee": 1500,
+      "currencyType": "USD",
+      "status": "ACTIVE",
+      "promoCodeStatus": "ACTIVE",
+      "startDate": "2025-10-01T00:00:00.000Z",
+      "endDate": "2025-12-31T23:59:59.000Z",
+      "agreementStatus": true,
+      "createdAt": "2025-09-29T10:00:00.000Z",
+      "updatedAt": "2025-09-29T10:00:00.000Z"
+    }
+  }
+  ```
+  
+  ## Validation Rules
+  - `courseId` must reference an existing course
+  - `sessionId` must reference an existing session if provided
+  - `overallCourseFee` must be positive
+  - `endDate` must be after `startDate`
+  - All tiered pricing dates must be within the overall fee period
+}

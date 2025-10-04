@@ -1,0 +1,106 @@
+meta {
+  name: GET Course Fee by Session and Course
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/payments/course-fees/by-course-session?courseId={{courseId}}&sessionId={{sessionId}}
+  body: none
+  auth: none
+}
+
+query {
+  courseId: {{courseId}}
+  sessionId: {{sessionId}}
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Course Fee by Session and Course
+  
+  Retrieves course fee structure for a specific course and session combination. Used when user navigates to degree course fee creation page.
+  
+  ## Query Parameters
+  - `courseId` (required): UUID of the course
+  - `sessionId` (required): UUID of the academic session
+  
+  ## Response Format
+  
+  ### If Course Fee Exists:
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Course fee structure retrieved successfully",
+    "data": {
+      "overallcoursefee": 10000,
+      "agreementStatus": true,
+      "semesters": [
+        {
+          "semesterName": "Semester 1",
+          "semesterFee": 5000,
+          "modules": [
+            {
+              "module": "Introduction to Computer Science",
+              "credit": 4,
+              "fee": 2500
+            },
+            {
+              "module": "Mathematics for Computing", 
+              "credit": 4,
+              "fee": 2500
+            }
+          ]
+        },
+        {
+          "semesterName": "Semester 2",
+          "semesterFee": 5000,
+          "modules": [
+            {
+              "module": "Data Structures and Algorithms",
+              "credit": 4,
+              "fee": 2500
+            },
+            {
+              "module": "Database Systems",
+              "credit": 4,
+              "fee": 2500
+            }
+          ]
+        }
+      ]
+    }
+  }
+  ```
+  
+  ### If No Course Fee Found:
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "No course fee found, returning default structure",
+    "data": {
+      "overallcoursefee": 0,
+      "agreementStatus": false,
+      "semesters": []
+    }
+  }
+  ```
+  
+  ## Usage Workflow
+  1. User selects session and course on fee creation page
+  2. Frontend calls this endpoint to load existing structure
+  3. If `agreementStatus` is true, allow editing of `overallcoursefee`
+  4. Populate form with existing semester and module data
+  5. User can modify and submit via CREATE/UPDATE endpoints
+  
+  ## Agreement Status Logic
+  - `true`: User can edit the overall course fee
+  - `false`: Overall course fee is read-only, but structure can be modified
+}

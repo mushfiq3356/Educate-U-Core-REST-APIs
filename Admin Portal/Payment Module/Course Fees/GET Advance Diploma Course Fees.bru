@@ -1,0 +1,92 @@
+meta {
+  name: GET Advance Diploma Course Fees
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/payments/course-fees/advance-diploma?page=1&limit=10
+  body: none
+  auth: none
+}
+
+query {
+  page: 1
+  limit: 10
+  ~courseType: ADVANCED_COURSE
+  ~status: ACTIVE
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Advance Diploma Course Fees
+  
+  Retrieves course fees specifically for advance diploma courses with overview information.
+  
+  ## Query Parameters
+  - `page` (optional): Page number for pagination (default: 1)
+  - `limit` (optional): Number of items per page (default: 10)
+  - Additional filters inherited from general course fees endpoint
+  
+  ## Response Format
+  Same as general course fees endpoint, but filtered for diploma courses:
+  
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Course fees retrieved successfully", 
+    "data": {
+      "courseList": [
+        {
+          "id": "uuid",
+          "courseName": "Advanced Web Development Diploma",
+          "overallCourseFee": 8000,
+          "courseFeeLogHistory": [],
+          "tieredPricing": [
+            {
+              "tierName": "Early Bird",
+              "price": 6000,
+              "startDate": "2025-09-01",
+              "endDate": "2025-09-15"
+            },
+            {
+              "tierName": "Regular",
+              "price": 8000,
+              "startDate": "2025-09-16",
+              "endDate": "2025-10-31"
+            }
+          ],
+          "startDate": "2025-09-01",
+          "endDate": "2025-10-31",
+          "currencyType": "USD",
+          "promoCodeStatus": "active",
+          "createdAt": "2025-08-26T10:00:00Z",
+          "updatedAt": "2025-08-26T10:00:00Z"
+        }
+      ]
+    },
+    "pagination": {
+      "count": 3,
+      "total": 12,
+      "page": 1,
+      "perPage": 10,
+      "totalPages": 2
+    }
+  }
+  ```
+  
+  ## Overview Cards Data
+  Used to populate overview statistics for advance diploma payment dashboard.
+  
+  ## Differences from Degree Courses
+  - Generally shorter duration and lower fees
+  - May have simpler fee structures
+  - Different tiered pricing strategies
+  - Focused on practical skills and industry requirements
+}

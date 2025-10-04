@@ -1,0 +1,87 @@
+meta {
+  name: GET Agent Overview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/payments/agent-overview
+  body: none
+  auth: none
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Agent Overview
+  
+  Retrieves overview statistics for agent commissions and payments dashboard.
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Agent overview retrieved successfully",
+    "data": [
+      {
+        "id": 1,
+        "tag": "Total Agent",
+        "amount": "436789021345",
+        "progress": "100%"
+      },
+      {
+        "id": 2,
+        "tag": "Pending Invoice",
+        "amount": "25044",
+        "progress": "84%"
+      },
+      {
+        "id": 3,
+        "tag": "Approved Payments",
+        "amount": "250",
+        "progress": "84%"
+      },
+      {
+        "id": 4,
+        "tag": "Potential Clawbacks",
+        "amount": "250",
+        "progress": "84%"
+      }
+    ]
+  }
+  ```
+  
+  ## Overview Metrics
+  
+  ### Total Agent
+  - **Description**: Total number of registered agents in the system
+  - **Calculation**: Count of users with agent role
+  - **Usage**: Overall agent network size tracking
+  
+  ### Pending Invoice
+  - **Description**: Number of commission invoices pending approval/payment
+  - **Calculation**: Count of agent commissions with status "PENDING"
+  - **Usage**: Track workload for commission processing
+  
+  ### Approved Payments
+  - **Description**: Number of commission payments that have been approved/paid
+  - **Calculation**: Count of agent commissions with status "PAID"
+  - **Usage**: Track successful commission payments
+  
+  ### Potential Clawbacks
+  - **Description**: Number of commissions flagged for potential clawback
+  - **Calculation**: Count of agent commissions with isClawback = true
+  - **Usage**: Monitor commission reversals and disputes
+  
+  ## Dashboard Usage
+  These metrics are displayed as overview cards on the agent management dashboard providing quick insights into:
+  - Agent network size and activity
+  - Commission processing pipeline status
+  - Payment completion rates
+  - Risk management indicators (clawbacks)
+}

@@ -1,0 +1,97 @@
+meta {
+  name: GET Course Fees
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/payments/course-fees?page=1&limit=10&promoCodeStatus=active
+  body: none
+  auth: none
+}
+
+query {
+  page: 1
+  limit: 10
+  promoCodeStatus: active
+  ~courseId: {{courseId}}
+  ~sessionId: {{sessionId}}
+  ~status: ACTIVE
+  ~courseType: ADVANCED_COURSE
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Course Fees
+  
+  Retrieves course fees for both advance degree and diploma courses with filtering options.
+  
+  ## Query Parameters
+  - `page` (optional): Page number for pagination (default: 1)
+  - `limit` (optional): Number of items per page (default: 10)
+  - `courseId` (optional): Filter by specific course ID
+  - `sessionId` (optional): Filter by academic session ID
+  - `status` (optional): Filter by fee status (ACTIVE, INACTIVE, ARCHIVED)
+  - `promoCodeStatus` (optional): Filter by promo code status (active, inactive, upcoming)
+  - `courseType` (optional): Filter by course type
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Course fees retrieved successfully",
+    "data": {
+      "courseList": [
+        {
+          "id": "uuid",
+          "courseName": "Full Stack Web Development",
+          "overallCourseFee": 1200,
+          "courseFeeLogHistory": [
+            {
+              "fieldName": "overallCourseFee",
+              "oldValue": "1000",
+              "newValue": "1200",
+              "changeReason": "Price adjustment for 2025",
+              "changedBy": "John Doe",
+              "createdAt": "2025-08-26T10:00:00Z"
+            }
+          ],
+          "tieredPricing": [
+            {
+              "tierName": "Early Bird",
+              "price": 900,
+              "startDate": "2025-09-01",
+              "endDate": "2025-09-10"
+            },
+            {
+              "tierName": "Regular",
+              "price": 1200,
+              "startDate": "2025-09-11",
+              "endDate": "2025-09-30"
+            }
+          ],
+          "startDate": "2025-09-01",
+          "endDate": "2025-09-30",
+          "currencyType": "USD",
+          "promoCodeStatus": "active",
+          "createdAt": "2025-08-26T10:00:00Z",
+          "updatedAt": "2025-08-26T10:00:00Z"
+        }
+      ]
+    },
+    "pagination": {
+      "count": 5,
+      "total": 20,
+      "page": 1,
+      "perPage": 10,
+      "totalPages": 2
+    }
+  }
+  ```
+}

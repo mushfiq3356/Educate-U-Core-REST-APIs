@@ -1,0 +1,91 @@
+meta {
+  name: GET Applicant Payments
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/payments/applicant-payments?page=1&limit=10&status=PENDING
+  body: none
+  auth: none
+}
+
+query {
+  page: 1
+  limit: 10
+  status: PENDING
+  ~paymentPlan: INSTALLMENT
+  ~applicantId: {{applicationId}}
+  ~courseId: {{courseId}}
+  ~dueDate: 2025-09-05
+  ~overdue: true
+}
+
+headers {
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Applicant Payments
+  
+  Retrieves a paginated list of applicant payment records with advanced filtering options.
+  
+  ## Query Parameters
+  - `page` (optional): Page number for pagination (default: 1)
+  - `limit` (optional): Number of items per page (default: 10)
+  - `status` (optional): Filter by payment status (PENDING, PAID, OVERDUE, CANCELLED)
+  - `paymentPlan` (optional): Filter by payment plan (FULL_PAYMENT, INSTALLMENT)
+  - `applicantId` (optional): Filter by specific application ID
+  - `courseId` (optional): Filter by course ID
+  - `dueDate` (optional): Filter by due date (YYYY-MM-DD)
+  - `overdue` (optional): Filter overdue payments (true/false)
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Payment records retrieved successfully",
+    "data": {
+      "data": [
+        {
+          "id": 1,
+          "applicantId": "APP-001",
+          "firstName": "John",
+          "course": "Computer Science BSc",
+          "paymentPlan": "Installment",
+          "paymentStatus": "Pending",
+          "dueDate": "2025-09-05",
+          "lastReminder": "2025-08-15",
+          "totalFee": 12000,
+          "paidAmount": 4000,
+          "installmentsPaid": 2,
+          "nextPayment": {
+            "date": "2025-09-05",
+            "amount": 2000
+          },
+          "paymentHistory": [
+            {
+              "date": "2025-07-05",
+              "amount": 2000,
+              "method": "Card",
+              "status": "Paid"
+            }
+          ]
+        }
+      ]
+    },
+    "pagination": {
+      "totalPages": 1,
+      "totalItems": 8,
+      "currentPage": 1,
+      "itemsPerPage": 10,
+      "pageSize": 10,
+      "from": 1,
+      "to": 8
+    }
+  }
+  ```
+}
