@@ -1,0 +1,76 @@
+meta {
+  name: UPDATE Finance Settings
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/finance-settings/{{financeSettingsId}}
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+body:json {
+  {
+    "discountName": "Updated Early Bird Discount",
+    "discountType": "PERCENTAGE",
+    "discountValue": 20,
+    "subjectEmail": "Updated Payment Confirmation",
+    "templateEmail": "Thank you for your payment. Your transaction has been processed successfully with updated terms.",
+    "autoReminder": false,
+    "frequency": "MONTHLY"
+  }
+}
+
+docs {
+  # Update Finance Settings
+  
+  Updates existing finance settings configuration. All fields are optional.
+  
+  ## URL Parameters
+  - `financeSettingsId` (string): The ID of the finance settings to update
+  
+  ## Request Body
+  ```json
+  {
+    "discountName": "string (optional)",
+    "discountType": "PERCENTAGE | FIXED_AMOUNT (optional)",
+    "discountValue": "number (optional)",
+    "subjectEmail": "string (optional)",
+    "templateEmail": "string (optional)",
+    "subjectPayment": "string (optional)",
+    "templatePayment": "string (optional)",
+    "subjectReminder": "string (optional)",
+    "templateReminder": "string (optional)",
+    "subjectInvoice": "string (optional)",
+    "templateInvoice": "string (optional)",
+    "autoReminder": "boolean (optional)",
+    "frequency": "ONCE | DAILY | WEEKLY | MONTHLY | YEARLY (optional)",
+    "courseId": "string (optional)",
+    "paymentStatus": "string (optional)"
+  }
+  ```
+  
+  ## Response
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Finance settings updated successfully",
+    "data": {
+      "id": "uuid",
+      "discountName": "Updated Early Bird Discount",
+      "discountType": "PERCENTAGE",
+      "discountValue": 20,
+      ...
+    }
+  }
+  ```
+}

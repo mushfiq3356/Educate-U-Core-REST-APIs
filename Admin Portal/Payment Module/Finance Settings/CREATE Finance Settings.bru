@@ -1,0 +1,81 @@
+meta {
+  name: CREATE Finance Settings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/finance-settings/create
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+body:json {
+  {
+    "discountName": "Early Bird Discount",
+    "discountType": "PERCENTAGE",
+    "discountValue": 15,
+    "subjectEmail": "Payment Confirmation",
+    "templateEmail": "Thank you for your payment. Your transaction has been processed successfully.",
+    "subjectPayment": "Payment Received",
+    "templatePayment": "Your payment has been received and processed. Reference: {transactionId}",
+    "subjectReminder": "Payment Reminder",
+    "templateReminder": "This is a friendly reminder that your payment is due on {dueDate}.",
+    "subjectInvoice": "Invoice Generated",
+    "templateInvoice": "Please find your invoice attached. Payment is due within 30 days.",
+    "autoReminder": true,
+    "frequency": "WEEKLY",
+    "courseId": "{{courseId}}",
+    "paymentStatus": "ACTIVE"
+  }
+}
+
+docs {
+  # Create Finance Settings
+  
+  Creates new finance settings configuration including discount and email template setup.
+  
+  ## Request Body
+  ```json
+  {
+    "discountName": "string (optional)",
+    "discountType": "PERCENTAGE | FIXED_AMOUNT",
+    "discountValue": "number (optional)",
+    "subjectEmail": "string (optional)",
+    "templateEmail": "string (optional)",
+    "subjectPayment": "string (optional)",
+    "templatePayment": "string (optional)",
+    "subjectReminder": "string (optional)",
+    "templateReminder": "string (optional)",
+    "subjectInvoice": "string (optional)",
+    "templateInvoice": "string (optional)",
+    "autoReminder": "boolean (optional)",
+    "frequency": "ONCE | DAILY | WEEKLY | MONTHLY | YEARLY",
+    "courseId": "string (optional)",
+    "paymentStatus": "string (optional)"
+  }
+  ```
+  
+  ## Response
+  ```json
+  {
+    "status": "success",
+    "statusCode": 201,
+    "message": "Finance settings created successfully",
+    "data": {
+      "id": "uuid",
+      "discountName": "Early Bird Discount",
+      "discountType": "PERCENTAGE",
+      "discountValue": 15,
+      ...
+    }
+  }
+  ```
+}

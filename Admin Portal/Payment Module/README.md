@@ -5,6 +5,7 @@ This collection contains comprehensive API endpoints for the EducateU Payment Ma
 ## 📋 Module Overview
 
 The Payment Module handles all payment-related operations including:
+- **Finance Settings**: System-wide financial configuration and email templates
 - **Promotional Codes**: Discount code management and application
 - **Applicant Payments**: Student payment tracking and installments
 - **Course Fees**: Course pricing with tiered structures
@@ -13,21 +14,26 @@ The Payment Module handles all payment-related operations including:
 
 ## 🗂 Collection Structure
 
-### 1. Promotional Codes
+### 1. Finance Settings
+- `GET` Finance Settings - Retrieve system financial configuration
+- `POST` Create Finance Settings - Create financial settings and email templates  
+- `PATCH` Update Finance Settings - Modify existing financial configuration
+
+### 2. Promotional Codes
 - `GET` Promotional Codes - List with filtering
 - `POST` Create Promotional Code - New discount codes
 - `PUT` Update Promotional Code - Modify existing codes
 - `GET` Get by ID - Retrieve specific code
 - `DELETE` Delete Promotional Code - Soft delete (set inactive)
 
-### 2. Applicant Payments
+### 3. Applicant Payments
 - `GET` Applicant Payments - Payment records with filtering
 - `POST` Create Payment Record - New payment setup
 - `PUT` Update Payment Status - Status and amount updates
 - `POST` Add Payment History - Record payment transactions
 - `GET` Payment Overview - Dashboard statistics
 
-### 3. Course Fees
+### 4. Course Fees
 - `GET` Course Fees - List all course fees
 - `POST` Create Course Fee - Basic fee structure
 - `POST` Create Degree Structure - Semester/module breakdown
@@ -35,20 +41,20 @@ The Payment Module handles all payment-related operations including:
 - `GET` Advance Degree Fees - Degree-specific fees
 - `GET` Advance Diploma Fees - Diploma-specific fees
 
-### 4. Agent Overview
+### 5. Agent Overview
 - `GET` Agent Overview - Statistics dashboard
 - `GET` Agent Overview Data - Detailed commission data
 
-### 5. Agent Commissions
+### 6. Agent Commissions
 - `GET` Agent Commissions - Commission records
 - `POST` Create Commission - New commission setup
 - `PUT` Update Commission - Status and clawback management
 
-### 6. Commission Payments
+### 7. Commission Payments
 - `GET` Commission Payments - Payment transaction history
 - `POST` Create Payment - Record commission payments
 
-### 7. Overview Endpoints
+### 8. Overview Endpoints
 - `GET` Advance Degree Overview - Degree payment statistics
 - `GET` Advance Diploma Overview - Diploma payment statistics
 
@@ -68,6 +74,7 @@ agentId: 55555555-5555-5555-5555-555555555555
 promoCodeId: 66666666-6666-6666-6666-666666666666
 paymentRecordId: 77777777-7777-7777-7777-777777777777
 commissionId: 88888888-8888-8888-8888-888888888888
+financeSettingsId: 99999999-9999-9999-9999-999999999999
 ```
 
 ## 🔐 Authentication
@@ -100,12 +107,21 @@ All endpoints return standardized responses:
 3. Verify authentication headers are properly set
 
 ### 2. Test Sequence
-1. **Promotional Codes**: Create → List → Update → Get by ID
-2. **Course Fees**: Create course fee → Create degree structure
-3. **Payment Records**: Create → Add payment history → Update status
-4. **Agent Commissions**: Create → Update status → Create payment
+1. **Finance Settings**: Create → Get → Update → Test email templates
+2. **Promotional Codes**: Create → List → Update → Get by ID
+3. **Course Fees**: Create course fee → Create degree structure
+4. **Payment Records**: Create → Add payment history → Update status
+5. **Agent Commissions**: Create → Update status → Create payment
 
 ### 3. Common Test Scenarios
+
+#### Finance Settings Workflow
+```
+1. POST /finance-settings/create (Create finance settings with email templates)
+2. GET /finance-settings (Verify settings are created)
+3. PATCH /finance-settings/{id} (Update discount rates or email templates)
+4. Test email template variables in different scenarios
+```
 
 #### Promotional Code Workflow
 ```

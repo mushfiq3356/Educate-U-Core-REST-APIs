@@ -1,0 +1,55 @@
+meta {
+  name: GET Finance Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/finance-settings
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  user-id: {{userId}}
+  portal-category-id: {{portalCategoryId}}
+  role-id: {{roleId}}
+}
+
+docs {
+  # Get Finance Settings
+  
+  Retrieves all finance settings including discount configuration and email templates.
+  
+  ## Response Format
+  ```json
+  {
+    "status": "success",
+    "statusCode": 200,
+    "message": "Finance settings retrieved successfully",
+    "data": [
+      {
+        "id": "uuid",
+        "discountName": "Early Bird Discount",
+        "discountType": "PERCENTAGE",
+        "discountValue": 10,
+        "subjectEmail": "Payment Confirmation",
+        "templateEmail": "Thank you for your payment...",
+        "subjectPayment": "Payment Received",
+        "templatePayment": "Your payment has been processed...",
+        "subjectReminder": "Payment Reminder",
+        "templateReminder": "This is a reminder...",
+        "subjectInvoice": "Invoice Generated",
+        "templateInvoice": "Please find your invoice...",
+        "autoReminder": true,
+        "frequency": "WEEKLY",
+        "courseId": "uuid",
+        "paymentStatus": "ACTIVE",
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "updatedAt": "2024-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+  ```
+}
