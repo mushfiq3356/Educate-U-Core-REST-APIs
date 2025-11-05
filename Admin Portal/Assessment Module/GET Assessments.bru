@@ -6,18 +6,20 @@ meta {
 
 get {
   url: {{BASE_URL}}/assessments
+  body: none
   auth: inherit
 }
 
-query {
-  page: 1
-  pageSize: 10
-  searchTerm: ""
-  assessmentCategory: "ASSIGNMENT"
-  assessmentType: "DEGREE"
-  awardingBodyId: ""
+params:query {
+  ~page: 1
+  ~pageSize: 10
+  ~searchTerm: ""
+  ~assessmentCategory: "ASSIGNMENT"
+  ~assessmentType: "DEGREE"
+  ~awardingBodyId: ""
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

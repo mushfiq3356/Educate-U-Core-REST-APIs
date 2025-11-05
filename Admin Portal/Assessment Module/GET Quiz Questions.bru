@@ -5,14 +5,16 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/quiz-questions
+  url: {{BASE_URL}}/assessments/quiz-questions?assessmentId=e591a2c7-aa7a-4d00-bfbb-1f70b1ae5286
+  body: none
   auth: inherit
 }
 
-query {
-  assessmentId: "{{ASSESSMENT_ID}}"
+params:query {
+  assessmentId: e591a2c7-aa7a-4d00-bfbb-1f70b1ae5286
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

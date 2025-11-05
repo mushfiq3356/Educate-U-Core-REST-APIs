@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/assignment-questions
+  url: {{BASE_URL}}/assessments/assignment-questions
   body: json
   auth: inherit
 }
@@ -13,6 +13,7 @@ post {
 body:json {
   {
     "assessmentId": "{{ASSESSMENT_ID}}",
+    "index": 1,
     "questionText": "Write an essay about the impact of technology on education",
     "submissionType": {
       "type": "ESSAY",

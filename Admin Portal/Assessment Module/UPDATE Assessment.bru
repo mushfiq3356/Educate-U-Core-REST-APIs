@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{BASE_URL}}/assessments/{{ASSESSMENT_ID}}
+  url: {{BASE_URL}}/assessments/e591a2c7-aa7a-4d00-bfbb-1f70b1ae5286
   body: json
   auth: inherit
 }
@@ -14,23 +14,25 @@ body:json {
   {
     "nameOrTitle": "Updated Sample Assessment",
     "assessmentCode": "SAMP001",
-    "assessmentCategory": "ASSIGNMENT",
+    "assessmentCategory": "QUIZ",
     "assessmentType": "DEGREE",
     "descriptionOrInstructions": "This is an updated sample assessment for testing",
+    "status": "PUBLISHED",
     "availableStartDate": "2025-12-01T00:00:00.000Z",
     "availableEndDate": "2025-12-31T23:59:59.000Z",
     "timeLimit": 90,
     "totalPointsOrWeight": 150,
     "passingScore": 75,
-    "awardingBodyId": "146eeadd-eacb-4b7c-846d-32161ec74a6e",
+  //   "awardingBodyId": "146eeadd-eacb-4b7c-846d-32161ec74a6e",
     "attempts": 5,
     "lateSubmissions": false,
-    "dueDate": "2025-12-20T23:59:59.000Z",
-    "rubricName": "Sample Rubric",
-    "rubricDescription": "Description for sample rubric"
+    "dueDate": "2025-12-20T23:59:59.000Z"
+  //   "rubricName": "Sample Rubric",
+  //   "rubricDescription": "Description for sample rubric"
   }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

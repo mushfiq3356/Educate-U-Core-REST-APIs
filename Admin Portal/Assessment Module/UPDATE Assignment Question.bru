@@ -5,24 +5,25 @@ meta {
 }
 
 put {
-  url: {{BASE_URL}}/assignment-questions/{{QUESTION_ID}}
+  url: {{BASE_URL}}/assessments/assignment-questions/b373eff7-d4c4-47df-91f1-14fdee19fce7
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "assessmentId": "{{ASSESSMENT_ID}}",
-    "questionText": "Write an essay about the impact of technology on modern education",
-    "submissionType": {
-      "type": "ESSAY",
-      "maxWords": 1500,
-      "format": "TEXT",
-      "requirements": ["include references", "follow APA format"]
-    }
+    "index": 2
+  //   "questionText": "Write an essay about the impact of technology on modern education",
+  //   "submissionType": {
+  //     "type": "ESSAY",
+  //     "maxWords": 1500,
+  //     "format": "TEXT",
+  //     "requirements": ["include references", "follow APA format"]
+  //   }
   }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
