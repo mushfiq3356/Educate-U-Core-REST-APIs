@@ -1,0 +1,14 @@
+meta {
+  name: GET Quiz Question by ID
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/quiz-questions/{{QUESTION_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

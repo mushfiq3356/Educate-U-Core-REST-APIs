@@ -1,0 +1,14 @@
+meta {
+  name: DELETE Rubric Template
+  type: http
+  seq: 25
+}
+
+delete {
+  url: {{BASE_URL}}/assessments/rubric-templates/{{RUBRIC_TEMPLATE_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

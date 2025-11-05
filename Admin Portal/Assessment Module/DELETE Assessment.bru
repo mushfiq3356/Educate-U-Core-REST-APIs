@@ -1,0 +1,14 @@
+meta {
+  name: DELETE Assessment
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{BASE_URL}}/assessments/{{ASSESSMENT_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

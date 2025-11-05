@@ -1,0 +1,26 @@
+meta {
+  name: UPDATE Rubric Criteria
+  type: http
+  seq: 19
+}
+
+put {
+  url: {{BASE_URL}}/assessments/rubric-criteria/{{RUBRIC_CRITERIA_ID}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Updated Content Quality",
+    "description": "Updated description for content quality",
+    "weight": 45,
+    "levelName": "Outstanding",
+    "levelDescription": "Exceptional content quality with comprehensive insights",
+    "rubricTemplateId": "{{RUBRIC_TEMPLATE_ID}}"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

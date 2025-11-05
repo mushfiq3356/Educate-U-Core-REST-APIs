@@ -1,0 +1,18 @@
+meta {
+  name: GET Assignment Questions
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{BASE_URL}}/assignment-questions
+  auth: inherit
+}
+
+query {
+  assessmentId: "{{ASSESSMENT_ID}}"
+}
+
+settings {
+  encodeUrl: true
+}

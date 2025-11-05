@@ -1,0 +1,23 @@
+meta {
+  name: GET Assessments
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/assessments
+  auth: inherit
+}
+
+query {
+  page: 1
+  pageSize: 10
+  searchTerm: ""
+  assessmentCategory: "ASSIGNMENT"
+  assessmentType: "DEGREE"
+  awardingBodyId: ""
+}
+
+settings {
+  encodeUrl: true
+}

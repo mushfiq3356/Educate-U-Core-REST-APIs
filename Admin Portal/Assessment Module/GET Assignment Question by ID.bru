@@ -1,0 +1,14 @@
+meta {
+  name: GET Assignment Question by ID
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{BASE_URL}}/assignment-questions/{{QUESTION_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

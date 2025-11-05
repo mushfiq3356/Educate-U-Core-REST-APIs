@@ -1,0 +1,33 @@
+meta {
+  name: UPDATE Rubric Template
+  type: http
+  seq: 24
+}
+
+put {
+  url: {{BASE_URL}}/assessments/rubric-templates/{{RUBRIC_TEMPLATE_ID}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Updated Essay Writing Rubric Template",
+    "criteria": [
+      {
+        "name": "Updated Content and Analysis",
+        "description": "Updated quality of content and depth of analysis",
+        "weight": 45,
+        "levelName": "Excellent",
+        "levelDescription": "Outstanding updated content and analysis"
+      },
+      {
+        "id": "{{EXISTING_CRITERIA_ID}}"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

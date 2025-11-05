@@ -1,0 +1,14 @@
+meta {
+  name: DELETE Assignment Question
+  type: http
+  seq: 15
+}
+
+delete {
+  url: {{BASE_URL}}/assignment-questions/{{QUESTION_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

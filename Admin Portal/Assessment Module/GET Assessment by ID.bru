@@ -1,0 +1,14 @@
+meta {
+  name: GET Assessment by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/assessments/{{ASSESSMENT_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

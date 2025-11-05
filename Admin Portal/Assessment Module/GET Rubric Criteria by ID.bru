@@ -1,0 +1,14 @@
+meta {
+  name: GET Rubric Criteria by ID
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{BASE_URL}}/assessments/rubric-criteria/{{RUBRIC_CRITERIA_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

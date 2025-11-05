@@ -1,0 +1,35 @@
+meta {
+  name: CREATE Assessment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/assessments
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nameOrTitle": "Sample Assessment",
+    "assessmentCode": "SAMP001",
+    "assessmentCategory": "ASSIGNMENT",
+    "assessmentType": "DEGREE",
+    "descriptionOrInstructions": "This is a sample assessment for testing",
+    "availableStartDate": "2025-12-01T00:00:00.000Z",
+    "availableEndDate": "2025-12-31T23:59:59.000Z",
+    "timeLimit": 60,
+    "totalPointsOrWeight": 100,
+    "passingScore": 50,
+    "awardingBodyId": "a8d9e228-5381-4987-b024-125e0455e747",
+    "attempts": 3,
+    "lateSubmissions": true,
+    "dueDate": "2025-12-15T23:59:59.000Z"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

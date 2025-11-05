@@ -1,0 +1,31 @@
+meta {
+  name: CREATE Quiz Question
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{BASE_URL}}/quiz-questions
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "assessmentId": "{{ASSESSMENT_ID}}",
+    "type": "MULTIPLE_CHOICE",
+    "questionText": "What is the capital of France?",
+    "point": 10,
+    "options": {
+      "A": "London",
+      "B": "Paris",
+      "C": "Berlin",
+      "D": "Madrid"
+    },
+    "answer": "B"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

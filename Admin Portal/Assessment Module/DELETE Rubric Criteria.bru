@@ -1,0 +1,14 @@
+meta {
+  name: DELETE Rubric Criteria
+  type: http
+  seq: 20
+}
+
+delete {
+  url: {{BASE_URL}}/assessments/rubric-criteria/{{RUBRIC_CRITERIA_ID}}
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

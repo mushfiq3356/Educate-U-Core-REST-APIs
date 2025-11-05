@@ -1,0 +1,28 @@
+meta {
+  name: UPDATE Assignment Question
+  type: http
+  seq: 14
+}
+
+put {
+  url: {{BASE_URL}}/assignment-questions/{{QUESTION_ID}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "assessmentId": "{{ASSESSMENT_ID}}",
+    "questionText": "Write an essay about the impact of technology on modern education",
+    "submissionType": {
+      "type": "ESSAY",
+      "maxWords": 1500,
+      "format": "TEXT",
+      "requirements": ["include references", "follow APA format"]
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

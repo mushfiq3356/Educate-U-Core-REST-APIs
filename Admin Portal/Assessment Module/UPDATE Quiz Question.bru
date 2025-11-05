@@ -1,0 +1,29 @@
+meta {
+  name: UPDATE Quiz Question
+  type: http
+  seq: 9
+}
+
+put {
+  url: {{BASE_URL}}/quiz-questions/{{QUESTION_ID}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "assessmentId": "{{ASSESSMENT_ID}}",
+    "type": "TRUE_FALSE",
+    "questionText": "Is Paris the capital of France?",
+    "point": 5,
+    "options": {
+      "A": "True",
+      "B": "False"
+    },
+    "answer": "A"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
