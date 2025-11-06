@@ -1,14 +1,15 @@
 meta {
   name: GET Rubric Template by ID
   type: http
-  seq: 23
+  seq: 26
 }
 
 get {
-  url: {{BASE_URL}}/assessments/rubric-templates/{{RUBRIC_TEMPLATE_ID}}
+  url: {{BASE_URL}}/assessments/rubric-templates/{{TEMPLATE_ID}}
   auth: inherit
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

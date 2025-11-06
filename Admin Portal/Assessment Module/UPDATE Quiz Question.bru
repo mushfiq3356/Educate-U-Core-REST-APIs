@@ -5,22 +5,20 @@ meta {
 }
 
 put {
-  url: {{BASE_URL}}/assessments/quiz-questions/3d4b618b-5eb4-4f1a-86ec-1d14808457d3
+  url: {{BASE_URL}}/assessments/quiz-questions/{{QUESTION_ID}}
   body: json
   auth: inherit
 }
 
 body:json {
   {
-  //   "type": "TRUE_FALSE",
-  //   "questionText": "Is Paris the capital of France?",
-  //   "point": 5,
-    "index": 1
-  //   "options": {
-  //     "A": "True",
-  //     "B": "False"
-  //   },
-  //   "answer": "A"
+    "questionText": "Updated quiz question text",
+    "point": 10,
+    "options": {
+      "optionA": "New Option A",
+      "optionB": "New Option B"
+    },
+    "answer": "A"
   }
 }
 

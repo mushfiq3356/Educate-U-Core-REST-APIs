@@ -1,7 +1,7 @@
 meta {
   name: UPDATE Rubric Criteria
   type: http
-  seq: 19
+  seq: 21
 }
 
 put {
@@ -12,15 +12,15 @@ put {
 
 body:json {
   {
-    "name": "Updated Content Quality",
-    "description": "Updated description for content quality",
-    "weight": 45,
-    "levelName": "Outstanding",
-    "levelDescription": "Exceptional content quality with comprehensive insights",
-    "rubricTemplateId": "{{RUBRIC_TEMPLATE_ID}}"
+    "name": "Updated Criteria Name",
+    "description": "Updated criteria description",
+    "weight": 25,
+    "levelName": "Excellent",
+    "levelDescription": "Excellent performance level"
   }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

@@ -1,18 +1,15 @@
 meta {
   name: GET Rubric Criteria
   type: http
-  seq: 17
+  seq: 19
 }
 
 get {
-  url: {{BASE_URL}}/assessments/rubric-criteria
+  url: {{BASE_URL}}/assessments/assignment-questions/{{ASSIGNMENT_QUESTION_ID}}/rubric-criteria
   auth: inherit
-}
-
-query {
-  assessmentId: "{{ASSESSMENT_ID}}"
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

@@ -1,26 +1,36 @@
 meta {
   name: CREATE Rubric Criteria
   type: http
-  seq: 16
+  seq: 18
 }
 
 post {
-  url: {{BASE_URL}}/assessments/rubric-criteria
+  url: {{BASE_URL}}/assessments/assignment-questions/{{ASSIGNMENT_QUESTION_ID}}/rubric-criteria
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "assessmentId": "{{ASSESSMENT_ID}}",
-    "name": "Content Quality",
-    "description": "Quality of the content provided",
-    "weight": 40,
-    "levelName": "Excellent",
-    "levelDescription": "Outstanding content quality with deep insights"
+    "rubricCriteriaConnections": [
+      {
+        "type": "new",
+        "data": {
+          "name": "Sample Criteria",
+          "description": "Sample rubric criteria description",
+          "weight": 20,
+          "levelName": "Good",
+          "levelDescription": "Good performance level"
+        },
+        "index": 0
+      }
+    ],
+    "rubricName": "Sample Rubric",
+    "rubricDescription": "Sample rubric description"
   }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

@@ -1,12 +1,11 @@
 meta {
   name: GET Assignment Questions
   type: http
-  seq: 12
+  seq: 13
 }
 
 get {
-  url: {{BASE_URL}}/assessments/assignment-questions
-  body: none
+  url: {{BASE_URL}}/assessments/{{ASSESSMENT_ID}}/assignment-questions
   auth: inherit
 }
 

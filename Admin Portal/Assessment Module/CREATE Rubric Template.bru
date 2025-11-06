@@ -1,40 +1,22 @@
 meta {
   name: CREATE Rubric Template
   type: http
-  seq: 21
+  seq: 24
 }
 
 post {
-  url: {{BASE_URL}}/assessments/rubric-templates
+  url: {{BASE_URL}}/assessments/assignment-questions/{{ASSIGNMENT_QUESTION_ID}}/create-template
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "name": "Essay Writing Rubric Template",
-    "criteria": [
-      {
-        "name": "Content and Analysis",
-        "description": "Quality of content and depth of analysis",
-        "weight": 40,
-        "levelName": "Excellent",
-        "levelDescription": "Outstanding content and analysis"
-      },
-      {
-        "name": "Structure and Organization",
-        "description": "How well information is organized",
-        "weight": 30,
-        "levelName": "Good",
-        "levelDescription": "Well organized content"
-      },
-      {
-        "id": "{{EXISTING_CRITERIA_ID}}"
-      }
-    ]
+    "templateName": "Sample Rubric Template"
   }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

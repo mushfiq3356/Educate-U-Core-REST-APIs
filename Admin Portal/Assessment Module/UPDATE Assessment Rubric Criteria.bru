@@ -1,0 +1,32 @@
+meta {
+  name: UPDATE Assessment Rubric Criteria
+  type: http
+  seq: 26
+}
+
+put {
+  url: {{BASE_URL}}/assessments/assessment-rubric-criteria
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "assessmentId": "9c4e0eed-9b3f-4a69-b92e-66199c6ac4bf",
+    "criteria": [
+      {
+        "id": "478b8e18-faf5-4067-8290-6b4ebc3f8ace",
+        "index": 0
+      },
+      {
+        "id": "c761726d-fb52-4aec-b7fb-9b44ef72cdb4",
+        "index": 1
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

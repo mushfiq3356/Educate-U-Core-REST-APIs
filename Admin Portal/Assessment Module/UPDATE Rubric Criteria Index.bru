@@ -1,18 +1,17 @@
 meta {
-  name: CREATE Quiz Question
+  name: UPDATE Rubric Criteria Index
   type: http
-  seq: 6
+  seq: 22
 }
 
-post {
-  url: {{BASE_URL}}/assessments/{{ASSESSMENT_ID}}/quiz-questions
+put {
+  url: {{BASE_URL}}/assessments/rubric-criteria/{{RUBRIC_CRITERIA_ID}}/index
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "type": "TRUE_FALSE",
     "index": 0
   }
 }

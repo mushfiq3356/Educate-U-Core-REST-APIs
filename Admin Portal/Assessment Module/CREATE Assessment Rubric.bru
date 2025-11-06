@@ -1,0 +1,34 @@
+meta {
+  name: CREATE Assessment Rubric
+  type: http
+  seq: 25
+}
+
+post {
+  url: {{BASE_URL}}/assessments/rubric
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "assessmentId": "9c4e0eed-9b3f-4a69-b92e-66199c6ac4bf",
+    "rubricName": "Assignment Rubric",
+    "rubricDescription": "Rubric for assignment evaluation",
+    "criteria": [
+      {
+        "id": "c761726d-fb52-4aec-b7fb-9b44ef72cdb4",
+        "index": 0
+      },
+      {
+        "id": "478b8e18-faf5-4067-8290-6b4ebc3f8ace",
+        "index": 1
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

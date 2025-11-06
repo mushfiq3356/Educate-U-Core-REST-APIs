@@ -1,0 +1,34 @@
+meta {
+  name: CREATE Assessment - DEGREE with Awarding Body
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/assessments
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nameOrTitle": "Mathematics Final Exam",
+    "assessmentCode": "MATH101",
+    "assessmentCategory": "QUIZ",
+    "assessmentType": "DEGREE",
+    "descriptionOrInstructions": "Final examination for mathematics course",
+    "availableStartDate": "2025-01-01T00:00:00.000Z",
+    "availableEndDate": "2025-12-31T23:59:59.000Z",
+    "timeLimit": 180,
+    "totalPointsOrWeight": 100,
+    "passingScore": 50,
+    "attempts": 1,
+    "lateSubmissions": false,
+    "awardingBodyId": "123e4567-e89b-12d3-a456-426614174000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

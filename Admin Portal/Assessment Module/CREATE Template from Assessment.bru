@@ -1,0 +1,23 @@
+meta {
+  name: CREATE Template from Assessment
+  type: http
+  seq: 31
+}
+
+post {
+  url: {{BASE_URL}}/assessments/templates/from-assessment
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "assessmentId": "9c4e0eed-9b3f-4a69-b92e-66199c6ac4bf",
+    "templateName": "Assignment Template"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
