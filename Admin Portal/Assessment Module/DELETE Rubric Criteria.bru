@@ -1,11 +1,12 @@
 meta {
   name: DELETE Rubric Criteria
   type: http
-  seq: 23
+  seq: 6
 }
 
 delete {
   url: {{BASE_URL}}/assessments/rubric-criteria/{{RUBRIC_CRITERIA_ID}}
+  body: none
   auth: inherit
 }
 

@@ -1,11 +1,11 @@
 meta {
-  name: CREATE Assignment Question
+  name: UPDATE Assignment Question Index
   type: http
-  seq: 12
+  seq: 1
 }
 
-post {
-  url: {{BASE_URL}}/assessments/{{ASSESSMENT_ID}}/assignment-questions
+put {
+  url: {{BASE_URL}}/assessments/assignment-questions/{{QUESTION_ID}}/index
   body: json
   auth: inherit
 }

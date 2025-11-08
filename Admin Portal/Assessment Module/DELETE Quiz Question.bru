@@ -1,11 +1,12 @@
 meta {
   name: DELETE Quiz Question
   type: http
-  seq: 11
+  seq: 20
 }
 
 delete {
   url: {{BASE_URL}}/assessments/quiz-questions/{{QUESTION_ID}}
+  body: none
   auth: inherit
 }
 
