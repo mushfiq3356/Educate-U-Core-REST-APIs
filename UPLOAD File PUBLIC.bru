@@ -1,0 +1,15 @@
+meta {
+  name: UPLOAD File PUBLIC
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/uploads-public
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(/home/mushfiq/Pictures/Screenshots/Screenshot From 2025-02-07 04-22-08.png)
+}

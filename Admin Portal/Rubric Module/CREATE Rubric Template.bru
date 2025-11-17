@@ -1,19 +1,19 @@
 meta {
-  name: CONNECT Rubric Criteria to Assignment Question
+  name: CREATE Rubric Template
   type: http
-  seq: 1
+  seq: 3
 }
 
 post {
-  url: {{BASE_URL}}/assessments/assignment-questions/{{ASSIGNMENT_QUESTION_ID}}/rubric-criteria
+  url: {{BASE_URL}}/rubrics/rubric-templates
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "rubricName": "Essay Rubric",
-    "rubricDescription": "Rubric for evaluating essays",
+    "name": "Sample Rubric Template",
+    "description": "Description for the rubric template",
     "rubricCriteriaConnections": [
       {
         "type": "new",
@@ -31,11 +31,6 @@ body:json {
               "name": "Good",
               "description": "Good content with adequate depth",
               "weight": 75
-            },
-            {
-              "name": "Satisfactory",
-              "description": "Basic content with minimal depth",
-              "weight": 50
             }
           ]
         },

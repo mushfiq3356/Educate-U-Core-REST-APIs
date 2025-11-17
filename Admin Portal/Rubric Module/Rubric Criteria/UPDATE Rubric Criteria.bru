@@ -1,11 +1,11 @@
 meta {
   name: UPDATE Rubric Criteria
   type: http
-  seq: 4
+  seq: 2
 }
 
 put {
-  url: {{BASE_URL}}/assessments/rubric-criteria/{{RUBRIC_CRITERIA_ID}}
+  url: {{BASE_URL}}/rubrics/rubric-criteria/{{RUBRIC_CRITERIA_ID}}
   body: json
   auth: inherit
 }

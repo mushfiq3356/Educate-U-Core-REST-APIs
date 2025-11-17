@@ -1,0 +1,22 @@
+meta {
+  name: UPDATE Rubric Criteria Template Index
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{BASE_URL}}/rubrics/rubric-criteria/{{RUBRIC_CRITERIA_ID}}/index
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "index": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

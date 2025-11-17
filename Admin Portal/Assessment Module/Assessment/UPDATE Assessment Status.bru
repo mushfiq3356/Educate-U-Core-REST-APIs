@@ -1,0 +1,22 @@
+meta {
+  name: UPDATE Assessment Status
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{BASE_URL}}/assessments/{{ASSESSMENT_ID}}/status
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "PUBLISHED"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,33 @@
+meta {
+  name: CREATE Assignment Assessment CPD
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/assessments
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nameOrTitle": "Professional Portfolio Assignment",
+    "assessmentCode": "PPA401",
+    "assessmentCategory": "ASSIGNMENT",
+    "assessmentType": "CPD",
+    "descriptionOrInstructions": "Professional portfolio assignment for CPD requirements",
+    "availableStartDate": "2025-01-01T00:00:00.000Z",
+    "availableEndDate": "2025-12-31T23:59:59.000Z",
+    "timeLimit": 0,
+    "totalPointsOrWeight": 150,
+    "passingScore": 100,
+    "attempts": 1,
+    "lateSubmissions": false
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

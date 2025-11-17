@@ -1,0 +1,16 @@
+meta {
+  name: GET Assessment Rubric Template by ID
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{BASE_URL}}/assessments/rubric-templates/{{RUBRIC_TEMPLATE_ID}}
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

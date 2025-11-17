@@ -1,0 +1,44 @@
+meta {
+  name: ADD Rubric Criteria to Template
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/rubrics/rubric-templates/{{RUBRIC_TEMPLATE_ID}}/rubric-criteria
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "rubricCriteriaConnections": [
+      {
+        "type": "new",
+        "data": {
+          "name": "Writing Style",
+          "description": "Clarity and style of writing",
+          "weight": 20,
+          "levels": [
+            {
+              "name": "Proficient",
+              "description": "Clear and well-structured writing",
+              "weight": 80
+            },
+            {
+              "name": "Developing",
+              "description": "Writing with some clarity issues",
+              "weight": 50
+            }
+          ]
+        },
+        "index": 1
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
