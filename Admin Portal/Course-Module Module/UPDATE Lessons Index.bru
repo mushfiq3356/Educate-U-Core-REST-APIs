@@ -5,16 +5,14 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/course-modules/59eae137-fb75-4bac-b393-bcc4a1bbf589/update-lessons-index
+  url: {{BASE_URL}}/course-modules/{{moduleId}}/update-lessons-index
   body: json
   auth: inherit
 }
 
 body:json {
-  [
-    {
-      "lessonId": "d8e44fe8-d475-436d-a766-a621931920b1",
-      "index": 4
-    }
-  ]
+  {
+    "lessonId": "d8e44fe8-d475-436d-a766-a621931920b1",
+    "index": 4
+  }
 }

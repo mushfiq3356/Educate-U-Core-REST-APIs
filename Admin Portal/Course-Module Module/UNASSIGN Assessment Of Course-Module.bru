@@ -1,0 +1,18 @@
+meta {
+  name: UNASSIGN Assessment Of Course-Module
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{BASE_URL}}/course-modules/unassign-assessment
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "moduleId": "2ab69259-23b0-4460-8267-1b23f4236e90",
+    "assessmentId": "81ee51e8-8bf3-402f-a2d6-fd6ce86c91d3"
+  }
+}

@@ -5,11 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/session/d44ddd4f-fa3a-437d-b26a-a662d7960b00/courses?awardingBodyId=ecaae6a8-3866-45a8-9335-4f21f528f19f
+  url: {{BASE_URL}}/session/a9d02b66-3ae8-4bf7-8722-4d944887e77f/courses?hasFees=false&courseType=DEGREE_COURSE
   body: none
   auth: inherit
 }
 
 params:query {
-  awardingBodyId: ecaae6a8-3866-45a8-9335-4f21f528f19f
+  hasFees: false
+  courseType: DEGREE_COURSE
+  ~awardingBodyId: ecaae6a8-3866-45a8-9335-4f21f528f19f
 }

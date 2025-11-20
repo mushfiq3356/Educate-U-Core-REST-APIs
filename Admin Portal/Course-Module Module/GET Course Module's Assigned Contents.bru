@@ -1,0 +1,10 @@
+meta {
+  name: GET Course Module's Assigned Contents
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{BASE_URL}}/course-modules/{{moduleId}}/assigned-contents
+  auth: inherit
+}
