@@ -1,0 +1,21 @@
+meta {
+  name: UPDATE Course Modules
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{BASE_URL}}/faculty-course-module/update
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": "{{moduleId}}",
+    "moduleType": "DEGREE",
+    "title": "Advanced Database Systems and NoSQL",
+    "description": "This updated module covers advanced concepts in database systems including distributed databases, NoSQL technologies, database optimization, and modern data storage solutions. Students will learn to design and implement complex database architectures with a focus on modern scalable solutions.",
+    "credit": 8
+  }
+}

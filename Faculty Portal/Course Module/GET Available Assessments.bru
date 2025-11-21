@@ -1,0 +1,11 @@
+meta {
+  name: GET Available Assessments
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{BASE_URL}}/faculty-course-module/{{moduleId}}/available-assessments
+  body: none
+  auth: inherit
+}

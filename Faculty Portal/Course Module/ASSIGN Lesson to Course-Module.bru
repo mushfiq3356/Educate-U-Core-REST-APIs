@@ -1,0 +1,18 @@
+meta {
+  name: ASSIGN Lesson to Course-Module
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/faculty-course-module/assign-lesson
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "moduleId": "{{moduleId}}",
+    "lessonId": "{{lessonId}}"
+  }
+}

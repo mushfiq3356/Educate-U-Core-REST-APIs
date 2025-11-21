@@ -1,0 +1,25 @@
+meta {
+  name: CREATE Course Modules
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/faculty-course-module/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "courseType": "DEGREE_COURSE",
+    "moduleType": "DEGREE",
+    "title": "Advanced Database Systems",
+    "description": "This module covers advanced concepts in database systems including distributed databases, NoSQL technologies, database optimization, and modern data storage solutions. Students will learn to design and implement complex database architectures.",
+    "credit": 6,
+    "awardingBodyId": "ecaae6a8-3866-45a8-9335-4f21f528f19f",
+    "estimatedTimeToComplete": 150,
+    "learningOutcome": "Upon completion, students will be able to design distributed database systems, optimize database performance, implement NoSQL solutions, and evaluate different database technologies for specific use cases.",
+    "forumOrDiscussionBoard": true
+  }
+}

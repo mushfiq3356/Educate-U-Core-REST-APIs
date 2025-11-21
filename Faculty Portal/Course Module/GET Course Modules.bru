@@ -1,0 +1,18 @@
+meta {
+  name: GET Course Modules
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/faculty-course-module/get
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "page": 1,
+    "pageSize": 10
+  }
+}

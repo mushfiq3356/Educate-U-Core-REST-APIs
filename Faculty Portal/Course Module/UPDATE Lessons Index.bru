@@ -1,0 +1,18 @@
+meta {
+  name: UPDATE Lessons Index
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{BASE_URL}}/faculty-course-module/{{moduleId}}/update-lessons-index
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "lessonId": "d8e44fe8-d475-436d-a766-a621931920b1",
+    "index": 4
+  }
+}

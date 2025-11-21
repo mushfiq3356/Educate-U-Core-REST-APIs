@@ -1,0 +1,11 @@
+meta {
+  name: GET Course Module's Available Lessons
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/faculty-course-module/{{moduleId}}/available-lessons
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,18 @@
+meta {
+  name: UPDATE Course Module's Assessment Index
+  type: http
+  seq: 17
+}
+
+post {
+  url: {{BASE_URL}}/faculty-course-module/{{moduleId}}/update-assessment-index
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "assessmentId": "81ee51e8-8bf3-402f-a2d6-fd6ce86c91d3",
+    "index": 2
+  }
+}

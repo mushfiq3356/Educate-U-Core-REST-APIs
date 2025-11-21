@@ -1,0 +1,11 @@
+meta {
+  name: GET Audit Logs
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{BASE_URL}}/faculty-course-module/audit-logs/{{moduleId}}
+  body: none
+  auth: inherit
+}

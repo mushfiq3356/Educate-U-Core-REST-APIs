@@ -1,0 +1,11 @@
+meta {
+  name: GET Course Modules By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/faculty-course-module/{{moduleId}}
+  body: none
+  auth: inherit
+}
