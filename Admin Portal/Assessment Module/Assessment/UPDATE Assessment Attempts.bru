@@ -1,0 +1,50 @@
+{
+  "name": "UPDATE Assessment Attempts",
+  "type": "http",
+  "http": {
+    "method": "PATCH",
+    "url": "{{host}}/assessments/{{assessmentId}}/attempts",
+    "auth": {
+      "mode": "inheritFromParent"
+    },
+    "headers": [
+      {
+        "uid": "header-user-id",
+        "name": "user-id",
+        "value": "{{userId}}"
+      },
+      {
+        "uid": "header-portal-category-id",
+        "name": "portal-category-id",
+        "value": "{{portalCategoryId}}"
+      },
+      {
+        "uid": "header-role-id",
+        "name": "role-id",
+        "value": "{{roleId}}"
+      }
+    ],
+    "body": {
+      "mode": "json",
+      "json": {
+        "attempts": 5
+      }
+    },
+    "vars": [],
+    "assertions": [
+      {
+        "uid": "assertion-status-code",
+        "mode": "equals",
+        "field": "response.status",
+        "value": "200"
+      },
+      {
+        "uid": "assertion-success-status",
+        "mode": "equals",
+        "field": "response.body.data.assessment.attempts",
+        "value": "5"
+      }
+    ],
+    "tests": []
+  }
+}

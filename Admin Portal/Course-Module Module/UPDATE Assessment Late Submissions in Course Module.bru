@@ -1,0 +1,50 @@
+{
+  "name": "UPDATE Assessment Late Submissions in Course Module",
+  "type": "http",
+  "http": {
+    "method": "PATCH",
+    "url": "{{host}}/course-modules/assessment/{{assessmentId}}/late-submissions",
+    "auth": {
+      "mode": "inheritFromParent"
+    },
+    "headers": [
+      {
+        "uid": "header-user-id",
+        "name": "user-id",
+        "value": "{{userId}}"
+      },
+      {
+        "uid": "header-portal-category-id",
+        "name": "portal-category-id",
+        "value": "{{portalCategoryId}}"
+      },
+      {
+        "uid": "header-role-id",
+        "name": "role-id",
+        "value": "{{roleId}}"
+      }
+    ],
+    "body": {
+      "mode": "json",
+      "json": {
+        "lateSubmissions": true
+      }
+    },
+    "vars": [],
+    "assertions": [
+      {
+        "uid": "assertion-status-code",
+        "mode": "equals",
+        "field": "response.status",
+        "value": "200"
+      },
+      {
+        "uid": "assertion-success-status",
+        "mode": "equals",
+        "field": "response.body.data.assessment.lateSubmissions",
+        "value": "true"
+      }
+    ],
+    "tests": []
+  }
+}
