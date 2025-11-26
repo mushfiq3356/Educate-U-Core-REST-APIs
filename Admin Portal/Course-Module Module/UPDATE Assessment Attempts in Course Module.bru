@@ -1,50 +1,21 @@
-{
-  "name": "UPDATE Assessment Attempts in Course Module",
-  "type": "http",
-  "http": {
-    "method": "PATCH",
-    "url": "{{host}}/course-modules/assessment/{{assessmentId}}/attempts",
-    "auth": {
-      "mode": "inheritFromParent"
-    },
-    "headers": [
-      {
-        "uid": "header-user-id",
-        "name": "user-id",
-        "value": "{{userId}}"
-      },
-      {
-        "uid": "header-portal-category-id",
-        "name": "portal-category-id",
-        "value": "{{portalCategoryId}}"
-      },
-      {
-        "uid": "header-role-id",
-        "name": "role-id",
-        "value": "{{roleId}}"
-      }
-    ],
-    "body": {
-      "mode": "json",
-      "json": {
-        "attempts": 5
-      }
-    },
-    "vars": [],
-    "assertions": [
-      {
-        "uid": "assertion-status-code",
-        "mode": "equals",
-        "field": "response.status",
-        "value": "200"
-      },
-      {
-        "uid": "assertion-success-status",
-        "mode": "equals",
-        "field": "response.body.data.assessment.attempts",
-        "value": "5"
-      }
-    ],
-    "tests": []
+meta {
+  name: UPDATE Assessment Attempts in Course Module
+  type: http
+}
+
+patch {
+  url: {{BASE_URL}}/course-modules/assessment/{{assessmentId}}/attempts
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "attempts": 5
   }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
 }
