@@ -1,0 +1,16 @@
+meta {
+  name: Get Module Contents
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/my-learning-courses/a4d2f8c1-7b3e-4c9a-9f1a-2d5e6b8c9a1f/modules/e2d75ca7-8ff2-49e4-a9e4-a8449d9ffd8e/contents
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

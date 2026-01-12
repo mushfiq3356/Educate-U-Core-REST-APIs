@@ -1,0 +1,27 @@
+meta {
+  name: Request Support
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/student-portal/support-requests
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "message": "I need help with my computer science course material",
+    "studentCourseId": "a4d2f8c1-7b3e-4c9a-9f1a-2d5e6b8c9a1f"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

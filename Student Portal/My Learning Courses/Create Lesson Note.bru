@@ -1,0 +1,25 @@
+meta {
+  name: Create Lesson Note
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/student-portal/my-learning-courses/a4d2f8c1-7b3e-4c9a-9f1a-2d5e6b8c9a1f/modules/e2d75ca7-8ff2-49e4-a9e4-a8449d9ffd8e/lesson-notes
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+    "lessonId": "d6d22506-797b-42a0-9280-c7f587ed72db",
+    "note": "This is a test note for the lesson",
+    "timestamp": 125
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

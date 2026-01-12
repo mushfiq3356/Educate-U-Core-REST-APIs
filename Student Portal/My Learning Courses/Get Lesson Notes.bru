@@ -1,0 +1,20 @@
+meta {
+  name: Get Lesson Notes
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/my-learning-courses/a4d2f8c1-7b3e-4c9a-9f1a-2d5e6b8c9a1f/lesson-notes?lessonId=d6d22506-797b-42a0-9280-c7f587ed72db
+  body: none
+  auth: inherit
+}
+
+headers {
+  user-id: 9c137ad8-90fd-4eff-a315-d69643316bea
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

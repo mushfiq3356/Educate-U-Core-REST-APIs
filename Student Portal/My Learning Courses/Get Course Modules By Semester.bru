@@ -1,0 +1,16 @@
+meta {
+  name: Get Course Modules By Semester
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/my-learning-courses/a4d2f8c1-7b3e-4c9a-9f1a-2d5e6b8c9a1f/modules-by-semester
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
