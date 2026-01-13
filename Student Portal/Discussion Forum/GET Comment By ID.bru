@@ -1,0 +1,11 @@
+meta {
+  name: GET Comment By ID
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/comments/{{COMMENT_ID}}
+  body: none
+  auth: inherit
+}

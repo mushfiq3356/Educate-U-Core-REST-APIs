@@ -1,0 +1,11 @@
+meta {
+  name: DELETE Comment
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{BASE_URL}}/student-portal/comments/{{COMMENT_ID}}
+  body: none
+  auth: inherit
+}

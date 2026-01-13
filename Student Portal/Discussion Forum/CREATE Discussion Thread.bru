@@ -1,0 +1,20 @@
+meta {
+  name: CREATE Discussion Thread
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/student-portal/discussion-threads
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Sample Discussion Thread Title",
+    "content": "This is the content of the discussion thread. It should be detailed and informative.",
+    "category": "General",
+    "sessionCourseId": "{{SESSION_COURSE_ID}}"
+  }
+}

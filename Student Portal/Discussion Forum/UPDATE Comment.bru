@@ -1,0 +1,17 @@
+meta {
+  name: UPDATE Comment
+  type: http
+  seq: 9
+}
+
+patch {
+  url: {{BASE_URL}}/student-portal/comments/{{COMMENT_ID}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "comment": "Updated comment content"
+  }
+}

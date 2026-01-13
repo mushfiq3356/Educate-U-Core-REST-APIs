@@ -1,0 +1,20 @@
+meta {
+  name: GET Discussion Threads
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/student-portal/discussion-threads
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "sessionCourseId": "{{SESSION_COURSE_ID}}",
+    "category": "General",
+    "page": 1,
+    "pageSize": 10
+  }
+}

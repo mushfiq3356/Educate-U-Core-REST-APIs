@@ -1,0 +1,11 @@
+meta {
+  name: GET Comments
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/discussion-threads/{{DISCUSSION_THREAD_ID}}/comments
+  body: none
+  auth: inherit
+}

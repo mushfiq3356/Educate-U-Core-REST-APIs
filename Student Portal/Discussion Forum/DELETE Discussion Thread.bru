@@ -1,0 +1,11 @@
+meta {
+  name: DELETE Discussion Thread
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{BASE_URL}}/student-portal/discussion-threads/{{DISCUSSION_THREAD_ID}}
+  body: none
+  auth: inherit
+}
