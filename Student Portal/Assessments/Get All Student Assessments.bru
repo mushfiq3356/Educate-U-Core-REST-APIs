@@ -1,11 +1,11 @@
 meta {
-  name: Test
+  name: Get All Student Assessments
   type: http
-  seq: 5
+  seq: 1
 }
 
 get {
-  url: http://localhost:3000/student-portal/students
+  url: {{BASE_URL}}/student-portal/assessments
   body: none
   auth: inherit
 }

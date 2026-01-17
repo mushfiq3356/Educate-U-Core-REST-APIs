@@ -1,0 +1,16 @@
+meta {
+  name: Get Assessment Questions
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/assessments/3c337c1c-4265-4c4b-bd41-8694f8951892/questions
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

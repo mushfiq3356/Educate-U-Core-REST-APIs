@@ -1,13 +1,17 @@
 meta {
-  name: UPLOAD File PUBLIC
+  name: UPLOAD File copy
   type: http
-  seq: 7
+  seq: 6
 }
 
 post {
-  url: {{BASE_URL}}/uploads-public
+  url: {{BASE_URL}}/student-portal/uploads
   body: multipartForm
   auth: inherit
+}
+
+headers {
+  user-id: 0dbbaa22-d506-490c-9032-b769d303567b
 }
 
 body:multipart-form {
