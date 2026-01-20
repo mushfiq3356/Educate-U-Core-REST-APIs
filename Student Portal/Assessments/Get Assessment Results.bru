@@ -1,0 +1,16 @@
+meta {
+  name: Get Assessment Results
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/assessments/6e385f79-e008-4a2b-b9f8-cd7d57aa87ea/results
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
