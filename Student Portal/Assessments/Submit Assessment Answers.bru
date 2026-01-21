@@ -5,25 +5,22 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/student-portal/assessments/6e385f79-e008-4a2b-b9f8-cd7d57aa87ea/submit-answers
+  url: {{BASE_URL}}/student-portal/assessments/{{ASSESSMENT_ID}}/submit-answers
   body: json
   auth: inherit
 }
 
+headers {
+  Content-Type: application/json
+  user-id: {{USER_ID}}
+}
 
 body:json {
   {
     "answers": [
       {
-        "questionId": "0003fd96-f253-4999-bf33-8204a2f944be",
-        "answer": "bf9b97c8-a156-4cf6-9caf-3b390e17f8ff"
-      },
-      {
-        "questionId": "b41740b7-0e07-4cee-b9ff-fbec699ebf7c",
-        "answer": [
-          "2626744e-2aea-4f38-8074-0ec13ebf9e40",
-          "484402e7-2efd-4c59-a3b3-ac65227f1f61"
-        ]
+        "questionId": "{{QUESTION_ID}}",
+        "answer": {{ANSWER_VALUE}}
       }
     ]
   }
