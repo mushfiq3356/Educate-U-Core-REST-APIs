@@ -1,0 +1,15 @@
+meta {
+  name: UPDATE Comment Views
+  type: http
+  seq: 10
+}
+
+patch {
+  url: {{BASE_URL}}/student-portal/comments/{{COMMENT_ID}}/views
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {}
+}

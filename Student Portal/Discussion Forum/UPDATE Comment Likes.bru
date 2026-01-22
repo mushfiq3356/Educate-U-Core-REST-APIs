@@ -1,0 +1,17 @@
+meta {
+  name: UPDATE Comment Likes
+  type: http
+  seq: 9
+}
+
+patch {
+  url: {{BASE_URL}}/student-portal/comments/{{COMMENT_ID}}/likes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "increment": true // Set to false to decrement likes
+  }
+}

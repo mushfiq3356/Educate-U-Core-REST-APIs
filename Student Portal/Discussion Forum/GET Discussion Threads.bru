@@ -4,17 +4,8 @@ meta {
   seq: 2
 }
 
-post {
+get {
   url: {{BASE_URL}}/student-portal/discussion-threads
-  body: json
+  body: none
   auth: inherit
-}
-
-body:json {
-  {
-    "sessionCourseId": "{{SESSION_COURSE_ID}}",
-    "category": "General",
-    "page": 1,
-    "pageSize": 10
-  }
 }
