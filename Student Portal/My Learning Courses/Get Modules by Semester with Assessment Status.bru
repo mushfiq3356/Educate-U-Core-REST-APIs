@@ -1,0 +1,17 @@
+meta {
+  name: Get Modules by Semester with Assessment Status
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/my-learning-courses/d6d22506-797b-42a0-9280-c7f587ed72db/modules-by-semester-with-status
+  body: none
+  auth: inherit
+}
+
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
