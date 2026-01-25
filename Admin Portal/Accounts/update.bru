@@ -1,0 +1,26 @@
+meta {
+  name: update
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{BASE_URL}}/system-settings/accounts/404ae2ed-39ff-4216-a7dd-469c9000b5e4
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0N2Q4ZDM3YS02ZmM0LTQwZjgtYmJlYS00ZjdhNDlhZGM5Y2UiLCJ1c2VyUG9ydGFsQ2F0ZWdvcnlJZCI6IjBmZGMyNGJiLTUwZjMtNDc4YS1iODM3LWQ5OWJjMWU4MDQxMyIsImlhdCI6MTc2OTMyMTQ2MywiZXhwIjoxNzcwNjE3NDYzfQ.1hpr7-Om7x6quHFHautKG85rPCQf9DuwXEvDRolfRk4
+}
+
+body:json {
+  {
+    "accountName": "salim"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

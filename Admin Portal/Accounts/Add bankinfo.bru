@@ -1,0 +1,32 @@
+meta {
+  name: Add bankinfo
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/system-settings/accounts
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0N2Q4ZDM3YS02ZmM0LTQwZjgtYmJlYS00ZjdhNDlhZGM5Y2UiLCJ1c2VyUG9ydGFsQ2F0ZWdvcnlJZCI6IjBmZGMyNGJiLTUwZjMtNDc4YS1iODM3LWQ5OWJjMWU4MDQxMyIsImlhdCI6MTc2OTMyMTQ2MywiZXhwIjoxNzcwNjE3NDYzfQ.1hpr7-Om7x6quHFHautKG85rPCQf9DuwXEvDRolfRk4
+}
+
+body:json {
+  {
+    "accountName": "John Doe",
+    "bankName": "Example Bank",
+    "branchName": "Main Branch",
+    "accountNumber": "12345678",
+    "swiftCode": "EXAMPUS1",
+    "currencyType": "USD"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

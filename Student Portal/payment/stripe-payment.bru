@@ -1,0 +1,22 @@
+meta {
+  name: stripe-payment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/student-portal/payment/create-checkout-session
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "applicationId":"8ea94ce6-25a1-4758-9f4d-4809df72d47e"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
