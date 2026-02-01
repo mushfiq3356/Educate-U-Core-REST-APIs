@@ -1,7 +1,7 @@
 meta {
   name: Get Assessment Results
   type: http
-  seq: 4
+  seq: 3
 }
 
 get {
@@ -10,7 +10,23 @@ get {
   auth: inherit
 }
 
-settings {
-  encodeUrl: true
-  timeout: 0
+query {
+  studentCourseId: {{STUDENT_COURSE_ID}}
+}
+
+docs {
+  # Get Assessment Results
+
+  Retrieves results for a specific assessment in a specific course.
+
+  ## Required Query Parameter
+  - **studentCourseId**: The student's course enrollment ID (from assessment list)
+    Results are fetched for the specific course context only.
+
+  ## Response
+  Returns `null` if the assessment has not been submitted for this course.
+
+  ## Course Isolation
+  Using the wrong studentCourseId will return no result, proving that
+  results are properly isolated per course.
 }

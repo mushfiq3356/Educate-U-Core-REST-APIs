@@ -5,6 +5,73 @@ meta {
 }
 
 get {
+  url: {{BASE_URL}}/student-portal/assessments?page=1&pageSize=10
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~pageSize: 10
+  ~assessmentStatus: 
+  ~sessionCourseId: 
+}
+
+docs {
+  # Get All Student Assessments
+
+  Retrieves all assessments for the authenticated student across all enrolled courses.
+
+  ## Key Change: Course Isolation
+  Each assessment now appears once per course (no deduplication). The same assessment
+  in different courses will have the same `id` but different `studentCourseId` values.
+
+  ## Important Response Fields
+
+  | Field | Description | Usage |
+  |-------|-------------|-------|
+  | `id` | Assessment template ID | Identifies the assessment |
+  | `studentCourseId` | **REQUIRED** for other endpoints | Unique per course enrollment |
+  | `sessionCourseId` | Session course identifier | Course instance ID |
+  | `courseTitle` | Name of the course | Display to user |
+  | `assessmentStatus` | Student's status | LOCKED, AVAILABLE, OVERDUE, SUBMITTED, GRADED |
+
+  ## Workflow
+  1. Call this endpoint to get all assessments
+  2. For each assessment, save the `studentCourseId` 
+  3. Use that `studentCourseId` when calling:
+     - Get Assessment Questions
+     - Submit Assessment Answers
+     - Get Assessment Results
+
+  ## Example Response
+  ```json
+  {
+    "assessments": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "studentCourseId": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+        "sessionCourseId": "6ba7b811-9dad-11d1-80b4-00c04fd430c8",
+        "title": "Quiz 1: AI Fundamentals",
+        "courseTitle": "Advanced AI for Robotics",
+        "assessmentStatus": "AVAILABLE"
+      },
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",  // Same ID!
+        "studentCourseId": "18e8a605-3fa6-4791-b261-f8a10e173db7",  // Different!
+        "sessionCourseId": "af8b23b3-2476-41b8-bed1-4794ddddec1f",
+        "title": "Quiz 1: AI Fundamentals",
+        "courseTitle": "Introduction to ML",
+        "assessmentStatus": "LOCKED"
+      }
+    ]
+  }
+  ```
+
+  Notice: Same assessment `id`, but different `studentCourseId` for each course.
+}
+
+get {
   url: {{BASE_URL}}/student-portal/assessments
   body: none
   auth: inherit

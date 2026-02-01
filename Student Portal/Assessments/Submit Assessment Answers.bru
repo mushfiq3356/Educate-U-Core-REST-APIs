@@ -1,31 +1,55 @@
 meta {
   name: Submit Assessment Answers
   type: http
-  seq: 3
+  seq: 4
 }
 
 post {
-  url: {{BASE_URL}}/student-portal/assessments/{{ASSESSMENT_ID}}/submit-answers
+  url: {{BASE_URL}}/student-portal/assessments/6e385f79-e008-4a2b-b9f8-cd7d57aa87ea/submit-answers
   body: json
   auth: inherit
 }
 
-headers {
-  Content-Type: application/json}
+query {
+  studentCourseId: {{STUDENT_COURSE_ID}}
 }
 
 body:json {
   {
     "answers": [
       {
-        "questionId": "{{QUESTION_ID}}",
-        "answer": {{ANSWER_VALUE}}
+        "questionId": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+        "answer": "2626744e-2aea-4f38-8074-0ec13ebf9e40"
       }
     ]
   }
 }
 
-settings {
-  encodeUrl: true
-  timeout: 0
+docs {
+  # Submit Assessment Answers
+
+  Submits answers for a specific assessment in a specific course.
+
+  ## Required Query Parameter
+  - **studentCourseId**: The student's course enrollment ID (from assessment list)
+    This determines which course the submission is saved to.
+
+  ## Answer Formats by Question Type
+
+  | Type | Format | Example |
+  |------|--------|---------|
+  | MULTIPLE_CHOICE | string (option ID) | `"option-uuid"` |
+  | MULTIPLE_SELECT | array of strings | `["opt1", "opt2"]` |
+  | TRUE_FALSE | boolean | `true` or `false` |
+  | FILL_BLANK | string | `"completed sentence"` |
+  | SHORT_ANSWER | string | `"brief answer"` |
+  | ESSAY | string | `"long text..."` |
+  | MATCHING | array of objects | `[{"leftSideId": "a", "rightSideId": "b"}]` |
+  | ORDERING | array | `["item3", "item1", "item2"]` |
+  | NUMERICAL_ENTRY | object | `{"correctValue": 42.5, "tolerance": 0.1}` |
+  | ASSIGNMENT | array of strings | `["https://.../file.pdf"]` |
+
+  ## Course Isolation
+  Submitting the same assessment with different studentCourseId values
+  will create separate submissions for each course.
 }
