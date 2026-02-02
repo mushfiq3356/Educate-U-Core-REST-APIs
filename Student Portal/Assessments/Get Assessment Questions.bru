@@ -11,23 +11,26 @@ get {
 }
 
 query {
-  studentCourseId: {{STUDENT_COURSE_ID}}
+  ~studentCourseId: {{STUDENT_COURSE_ID}}
+  ~moduleId: {{MODULE_ID}}
   ~correctness: CORRECT
 }
 
 docs {
   # Get Assessment Questions
 
-  Retrieves questions for a specific assessment from a specific course.
+  Retrieves questions for a specific assessment from a specific module in a specific course.
 
-  ## Required Query Parameter
+  ## Required Query Parameters
   - **studentCourseId**: The student's course enrollment ID (from assessment list)
     This ensures questions are fetched from the correct course snapshot.
+  - **moduleId**: The module ID where the assessment is located (from assessment list)
+    This ensures questions are fetched from the correct module within the course.
 
   ## Example
-  Use the `studentCourseId` field from the assessment list response.
+  Use the `studentCourseId` and `moduleId` fields from the assessment list response.
 
-  ## Course Isolation
-  The same assessment may exist in multiple courses. This parameter ensures
-  you get questions from the specific course context.
+  ## Module Isolation
+  The same assessment may exist in multiple modules within a course. These parameters ensure
+  you get questions from the specific module context.
 }

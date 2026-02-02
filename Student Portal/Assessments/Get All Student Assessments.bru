@@ -33,13 +33,15 @@ docs {
   | `id` | Assessment template ID | Identifies the assessment |
   | `studentCourseId` | **REQUIRED** for other endpoints | Unique per course enrollment |
   | `sessionCourseId` | Session course identifier | Course instance ID |
+  | `moduleId` | **REQUIRED** for other endpoints | Module where assessment is located |
+  | `moduleTitle` | Title of the module | Display to user |
   | `courseTitle` | Name of the course | Display to user |
   | `assessmentStatus` | Student's status | LOCKED, AVAILABLE, OVERDUE, SUBMITTED, GRADED |
 
   ## Workflow
   1. Call this endpoint to get all assessments
-  2. For each assessment, save the `studentCourseId` 
-  3. Use that `studentCourseId` when calling:
+  2. For each assessment, save the `studentCourseId` and `moduleId`
+  3. Use both `studentCourseId` and `moduleId` when calling:
      - Get Assessment Questions
      - Submit Assessment Answers
      - Get Assessment Results

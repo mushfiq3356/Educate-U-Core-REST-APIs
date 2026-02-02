@@ -11,7 +11,8 @@ post {
 }
 
 query {
-  studentCourseId: {{STUDENT_COURSE_ID}}
+  ~studentCourseId: {{STUDENT_COURSE_ID}}
+  ~moduleId: {{MODULE_ID}}
 }
 
 body:json {
@@ -28,11 +29,13 @@ body:json {
 docs {
   # Submit Assessment Answers
 
-  Submits answers for a specific assessment in a specific course.
+  Submits answers for a specific assessment in a specific module within a specific course.
 
-  ## Required Query Parameter
+  ## Required Query Parameters
   - **studentCourseId**: The student's course enrollment ID (from assessment list)
     This determines which course the submission is saved to.
+  - **moduleId**: The module ID where the assessment is located (from assessment list)
+    This determines which module instance the submission is saved to.
 
   ## Answer Formats by Question Type
 
@@ -49,7 +52,8 @@ docs {
   | NUMERICAL_ENTRY | object | `{"correctValue": 42.5, "tolerance": 0.1}` |
   | ASSIGNMENT | array of strings | `["https://.../file.pdf"]` |
 
-  ## Course Isolation
-  Submitting the same assessment with different studentCourseId values
-  will create separate submissions for each course.
+  ## Module Isolation
+  The same assessment can exist in multiple modules within a course. The moduleId parameter
+  ensures submissions are saved to the specific module instance, allowing students to submit
+  the same assessment independently in different modules.
 }
