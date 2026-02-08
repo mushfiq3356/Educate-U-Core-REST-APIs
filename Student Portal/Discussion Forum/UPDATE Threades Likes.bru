@@ -1,0 +1,11 @@
+meta {
+  name: UPDATE Threades Likes
+  type: http
+  seq: 13
+}
+
+patch {
+  url: {{BASE_URL}}/student-portal/thread/{{THREAD_ID}}/likes
+  body: json
+  auth: inherit
+}

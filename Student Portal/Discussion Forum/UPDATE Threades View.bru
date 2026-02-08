@@ -1,0 +1,11 @@
+meta {
+  name: UPDATE Threades View
+  type: http
+  seq: 14
+}
+
+patch {
+  url: {{BASE_URL}}/student-portal/thread/{{THREAD_ID}}/views
+  body: json
+  auth: inherit
+}
