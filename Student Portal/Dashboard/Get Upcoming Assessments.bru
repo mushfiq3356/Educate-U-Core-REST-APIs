@@ -10,6 +10,38 @@ get {
   auth: inherit
 }
 
+docs {
+  # Retrieves upcoming assessments for the authenticated student
+  
+  Returns assessments that are either AVAILABLE (can be started now) or LOCKED (coming soon).
+  Excludes OVERDUE, SUBMITTED, and GRADED assessments.
+  
+  ## Response Fields
+  - id: Assessment unique identifier
+  - studentCourseId: Student's enrollment ID
+  - sessionCourseId: Session course ID
+  - moduleId: Module unique identifier
+  - moduleTitle: Human-readable module name
+  - title: Assessment title
+  - description: Assessment description
+  - dueDate: Assessment due date (nullable)
+  - courseId: Course unique identifier
+  - courseTitle: Course title
+  - assessmentCategory: QUIZ or ASSIGNMENT
+  - assessmentType: DEGREE, CPD, etc.
+  - availableStartDate: When assessment becomes available
+  - availableEndDate: When assessment closes
+  - timeLimit: Duration in minutes
+  - totalPointsOrWeight: Assessment weight/points
+  - passingScore: Minimum score to pass
+  - attempts: Number of allowed attempts
+  - status: Template status (PUBLISHED)
+  - assessmentStatus: Student's actionable status (AVAILABLE, LOCKED)
+  
+  ## Sorting
+  Results are sorted by dueDate (soonest first), then by availableStartDate.
+}
+
 settings {
   encodeUrl: true
   timeout: 0

@@ -1,7 +1,7 @@
 meta {
   name: Get Assessment Results
   type: http
-  seq: 4
+  seq: 3
 }
 
 get {
@@ -10,7 +10,27 @@ get {
   auth: inherit
 }
 
-settings {
-  encodeUrl: true
-  timeout: 0
+query {
+  ~studentCourseId: {{STUDENT_COURSE_ID}}
+  ~moduleId: {{MODULE_ID}}
+}
+
+docs {
+  # Get Assessment Results
+
+  Retrieves results for a specific assessment in a specific module within a specific course.
+
+  ## Required Query Parameters
+  - **studentCourseId**: The student's course enrollment ID (from assessment list)
+    Results are fetched for the specific course context only.
+  - **moduleId**: The module ID where the assessment is located (from assessment list)
+    Results are fetched for the specific module context only.
+
+  ## Response
+  Returns `null` if the assessment has not been submitted for this module.
+
+  ## Module Isolation
+  Using the wrong moduleId will return no result, proving that results are properly isolated
+  per module. This allows the same assessment to be submitted and graded independently
+  in different modules within the same course.
 }
