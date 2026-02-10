@@ -5,15 +5,15 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/student-portal/discussion-threads/{{DISCUSSION_THREAD_ID}}/comments
+  url: {{BASE_URL}}/student-portal/discussion-threads/{{THREAD_ID}}/comments
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "comment": "This is a sample comment on the discussion thread.",
-    "discussionThreadId": "{{DISCUSSION_THREAD_ID}}",
-    "parentCommentId": "{{PARENT_COMMENT_ID}}" // Optional - for nested comments
+    "comment": "This is a sample comment as Childrean.",
+    "discussionThreadId": "{{THREAD_ID}}"
+   // "parentCommentId": "{{PARENT_COMMENT_ID}}" // Optional - for nested comments
   }
 }
