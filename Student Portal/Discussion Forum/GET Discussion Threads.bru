@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/student-portal/discussion-threads?page=5&search=Ne&sortBy=POPULAR
+  url: {{BASE_URL}}/student-portal/discussion-threads?sortBy=POPULAR
   body: none
   auth: inherit
 }
 
 params:query {
-  page: 5
-  search: Ne
   sortBy: POPULAR
+  ~page: 5
+  ~search: Ne
 }
