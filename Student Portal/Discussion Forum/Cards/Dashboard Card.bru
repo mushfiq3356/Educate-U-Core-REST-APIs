@@ -1,19 +1,11 @@
 meta {
   name: Dashboard Card
   type: http
-  seq: 2
+  seq: 1
 }
 
 get {
   url: {{BASE_URL}}/student-portal/all-cards
   body: none
   auth: inherit
-}
-
-params:query {
-  ~sessionCourseId: 
-  ~category: 
-  ~sortBy: POPULAR
-  ~page: 1
-  ~pageSize: 10
 }
