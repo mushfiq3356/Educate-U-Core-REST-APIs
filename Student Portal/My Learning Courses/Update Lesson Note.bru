@@ -1,0 +1,24 @@
+meta {
+  name: Update Lesson Note
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{BASE_URL}}/student-portal/my-learning-courses/a4d2f8c1-7b3e-4c9a-9f1a-2d5e6b8c9a1f/lesson-notes/6e537b51-09b0-4891-9fad-a5399fa28cf4
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+    "note": "This is the updated note content",
+    "timestamp": 150
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
