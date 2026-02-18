@@ -1,0 +1,35 @@
+meta {
+  name: manual-payment-course
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{BASE_URL}}/student-portal/payment/manual-payment-by-course
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "studentCourseId": "511accd7-d929-4ad9-94bb-d726ebbd0623",
+    "amount": 1500,
+    "transactionId": "TXN-987654321",
+    "paymentMethod": "BANK_TRANSFER",
+    "paymentDate": "2026-02-18T10:30:00Z",
+    "notes": "First installment payment",
+    "image": "https://example.com/payment-receipt.jpg",
+    "accountName": "John Doe",
+    "bankName": "ABC Bank",
+    "branchName": "Downtown Branch",
+    "accountNumber": "1234567890",
+    "swiftCode": "ABCDEF12",
+    "currencyType": "USD"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

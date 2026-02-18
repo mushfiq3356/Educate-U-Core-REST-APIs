@@ -1,0 +1,26 @@
+meta {
+  name: stripe-payment-course
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/student-portal/payment/stripe-checkout-by-course
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MTExODNhZS1mMjdhLTQ4MTQtYTM0Ni1mZGJhYTM0MzAzZWIiLCJpYXQiOjE3NzEzOTQ1MzUsImV4cCI6MTc3MjY5MDUzNX0.HNrrLVMsyCujKvNH6qgup8npioTtBa0rEYkt63mqd64
+}
+
+body:json {
+  {
+    "studentCourseId": "511accd7-d929-4ad9-94bb-d726ebbd0623"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
