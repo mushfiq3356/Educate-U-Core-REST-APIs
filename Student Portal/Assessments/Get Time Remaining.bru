@@ -1,0 +1,16 @@
+meta {
+  name: Get Time Remaining
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/assessments/18164796-7e73-46b9-91fe-739306062beb/time-remaining
+  body: none
+  auth: inherit
+}
+
+query {
+  ~studentCourseId: 7cb05d66-c41f-4757-b185-fc337b713594
+  ~moduleId: 45a1e171-e020-497b-9752-235c8b721fb1
+}
