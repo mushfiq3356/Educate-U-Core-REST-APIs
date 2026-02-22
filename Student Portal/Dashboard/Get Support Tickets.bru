@@ -1,0 +1,21 @@
+meta {
+  name: Get Support Tickets
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/support-tickets?page=1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  ~status: RESOLVED
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

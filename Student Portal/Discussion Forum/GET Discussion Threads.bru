@@ -5,13 +5,15 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/student-portal/discussion-threads?sortBy=POPULAR
+  url: {{BASE_URL}}/student-portal/discussion-threads?sortBy=POPULAR&pageSize=20
   body: none
   auth: inherit
 }
 
 params:query {
   sortBy: POPULAR
-  ~page: 5
+  pageSize: 20
+  ~page: 2
   ~search: Ne
+  ~sessionCourseId: 6b2d096c-84ff-4725-adc4-dc641452b0d8
 }

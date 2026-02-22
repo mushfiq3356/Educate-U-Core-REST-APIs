@@ -1,0 +1,37 @@
+meta {
+  name: Test
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/test
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": "2e5d4482-8b41-4f7c-9b85-16c0d46efe82",
+    "userId": "2fab4199-bcbc-4520-ab74-129c18af450d",
+    "portalCategoryId": "c6b10754-99f3-48ad-a84a-3fa29d9d3b80",
+    "moduleId": "0a1a7910-d8f9-477e-a585-b92df4b90934",
+    "modulePermission": [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "permissionType": "PERMANENT",
+    "permissionStartDate": null,
+    "permissionEndDate": null,
+    "manualRevocation": false,
+    "createdAt": "2026-01-21T11:37:04.776Z",
+    "updatedAt": "2026-01-21T11:37:04.776Z"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

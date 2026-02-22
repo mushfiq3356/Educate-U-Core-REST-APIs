@@ -1,0 +1,28 @@
+meta {
+  name: Get Support Tokens
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/support-tokens
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~search: Token
+  ~scope: own
+  ~page: 2
+  ~pageSize: 20
+  ~scope: own
+  ~search: sdg
+  ~page: 2
+  ~pageSize: 20
+  ~status: PENDING
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,11 @@
+meta {
+  name: GET Discussion Threads By Course ID
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/discussion-threads/course/{{SESSION_COURSE_ID}}
+  body: none
+  auth: inherit
+}
