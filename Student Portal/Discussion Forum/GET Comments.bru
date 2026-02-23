@@ -5,12 +5,12 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/student-portal/discussion-threads/{{THREAD_ID}}/comments?page=1
+  url: {{BASE_URL}}/student-portal/discussion-threads/{{THREAD_ID}}/comments?page=2
   body: none
   auth: inherit
 }
 
 params:query {
-  page: 1
+  page: 2
   ~search: update comment
 }

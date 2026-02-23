@@ -1,0 +1,23 @@
+meta {
+  name: Resolve Token
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{BASE_URL}}/support-tokens/resolve
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "tokenId": "3199b774-c064-4af1-985f-ba1daa320bff"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

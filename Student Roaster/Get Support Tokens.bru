@@ -5,12 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/support-tokens
+  url: {{BASE_URL}}/support-tokens?stage=EC2
   body: none
   auth: inherit
 }
 
 params:query {
+  stage: EC2
   ~search: Token
   ~scope: own
   ~page: 2
