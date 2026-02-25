@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/student-portal/support-tickets?page=1
+  url: {{BASE_URL}}/student-portal/support-tickets
   body: none
   auth: inherit
 }
 
 params:query {
-  page: 1
+  ~page: 1
   ~status: RESOLVED
 }
 
