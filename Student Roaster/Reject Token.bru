@@ -1,0 +1,23 @@
+meta {
+  name: Reject Token
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{BASE_URL}}/support-tokens/reject
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "tokenId": "3199b774-c064-4af1-985f-ba1daa320bff"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
