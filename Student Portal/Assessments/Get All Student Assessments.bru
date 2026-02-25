@@ -36,7 +36,15 @@ docs {
   | `moduleId` | **REQUIRED** for other endpoints | Module where assessment is located |
   | `moduleTitle` | Title of the module | Display to user |
   | `courseTitle` | Name of the course | Display to user |
-  | `assessmentStatus` | Student's status | LOCKED, AVAILABLE, OVERDUE, SUBMITTED, GRADED |
+  | `assessmentStatus` | Student's status | LOCKED, AVAILABLE, EXPIRED, OVERDUE, SUBMITTED, GRADED |
+
+  ## Assessment Status Values
+  - LOCKED: Not yet available (availableStartDate in future)
+  - AVAILABLE: Can start the assessment
+  - EXPIRED: Started but time limit exceeded (can restart if attempts remain)
+  - OVERDUE: Past due date
+  - SUBMITTED: Answers submitted, awaiting grading
+  - GRADED: Score available
 
   ## Workflow
   1. Call this endpoint to get all assessments
@@ -46,31 +54,14 @@ docs {
      - Submit Assessment Answers
      - Get Assessment Results
 
-  ## Example Response
-  ```json
-  {
-    "assessments": [
-      {
-        "id": "550e8400-e29b-41d4-a716-446655440000",
-        "studentCourseId": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-        "sessionCourseId": "6ba7b811-9dad-11d1-80b4-00c04fd430c8",
-        "title": "Quiz 1: AI Fundamentals",
-        "courseTitle": "Advanced AI for Robotics",
-        "assessmentStatus": "AVAILABLE"
-      },
-      {
-        "id": "550e8400-e29b-41d4-a716-446655440000",  // Same ID!
-        "studentCourseId": "18e8a605-3fa6-4791-b261-f8a10e173db7",  // Different!
-        "sessionCourseId": "af8b23b3-2476-41b8-bed1-4794ddddec1f",
-        "title": "Quiz 1: AI Fundamentals",
-        "courseTitle": "Introduction to ML",
-        "assessmentStatus": "LOCKED"
-      }
-    ]
-  }
-  ```
-
-  Notice: Same assessment `id`, but different `studentCourseId` for each course.
+  ## Filter by Status
+  You can filter by assessmentStatus:
+  - ?status=AVAILABLE
+  - ?status=LOCKED
+  - ?status=EXPIRED
+  - ?status=OVERDUE
+  - ?status=SUBMITTED
+  - ?status=GRADED
 }
 
 get {
@@ -80,7 +71,7 @@ get {
 }
 
 query {
-  status: PENDING
+  status: AVAILABLE
   ~sessionCourseId: dc569cdd-e129-43a9-89fe-93d6f598c24c
   ~page: 1
   ~pageSize: 10
