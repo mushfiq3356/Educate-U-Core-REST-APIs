@@ -1,0 +1,20 @@
+meta {
+  name: Get Individual Course Progress
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/student-portal/course-progress/:studentCourseId
+  body: none
+  auth: inherit
+}
+
+headers {
+  user-id: {{STUDENT_ID}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
