@@ -5,15 +5,15 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/support-tokens?stage=EC
+  url: {{BASE_URL}}/support-tokens?stage=GENERAL
   body: none
   auth: inherit
 }
 
 params:query {
-  stage: EC
-  ~search: Token
+  stage: GENERAL
   ~scope: own
+  ~search: Token
   ~page: 2
   ~pageSize: 20
   ~scope: own
