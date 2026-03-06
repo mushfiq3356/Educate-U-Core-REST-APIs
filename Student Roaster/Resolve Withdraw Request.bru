@@ -1,0 +1,22 @@
+meta {
+  name: Resolve Withdraw Request
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{BASE_URL}}/support-tokens/resolve-withdraw-request
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "tokenId": "2c8e8f92-492c-4c11-8264-4ac17b0df347"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
