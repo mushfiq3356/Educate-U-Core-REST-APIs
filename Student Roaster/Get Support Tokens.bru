@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/support-tokens?stage=WITHDRAWAL
+  url: {{BASE_URL}}/support-tokens?stage=EC2
   body: none
   auth: inherit
 }
 
 params:query {
-  stage: WITHDRAWAL
+  stage: EC2
   ~scope: own
   ~search: Token
   ~page: 2
