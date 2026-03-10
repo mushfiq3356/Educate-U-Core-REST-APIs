@@ -13,8 +13,8 @@ get {
 query {
   ~page: 1
   ~pageSize: 10
-  ~assessmentStatus: 
-  ~sessionCourseId: 
+  ~status:
+  ~sessionCourseId:
 }
 
 docs {
@@ -55,7 +55,7 @@ docs {
      - Get Assessment Results
 
   ## Filter by Status
-  You can filter by assessmentStatus:
+  You can filter by status:
   - ?status=AVAILABLE
   - ?status=LOCKED
   - ?status=EXPIRED
