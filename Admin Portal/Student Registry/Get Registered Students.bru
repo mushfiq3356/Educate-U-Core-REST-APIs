@@ -5,17 +5,18 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/student-roaster/
-  body: json
+  url: {{BASE_URL}}/registry
+  body: none
   auth: inherit
 }
 
 body:json {
-  {
-    "page":1
-  }
+  // {
+  //   "page":1
+  // }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
