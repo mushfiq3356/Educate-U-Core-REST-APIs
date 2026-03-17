@@ -1,0 +1,25 @@
+meta {
+  name: Save Video Position
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{BASE_URL}}/student-portal/my-learning-courses/:studentCourseId/contents/:contentId/video-position
+  body: json
+  auth: inherit
+}
+
+headers {
+  user-id: 
+  Content-Type: application/json
+}
+
+body:json {
+  position: 125
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
