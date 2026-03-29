@@ -1,20 +1,19 @@
 meta {
-  name: Get Support Tokens
+  name: Get Withdrawl Request Ticket
   type: http
   seq: 1
 }
 
 get {
-  url: {{BASE_URL}}/support-tokens?scope=own
+  url: {{BASE_URL}}/withdrawal-request
   body: none
   auth: inherit
 }
 
 params:query {
-  scope: own
-  ~search: Token
   ~page: 2
   ~pageSize: 20
+  ~search: df
 }
 
 settings {

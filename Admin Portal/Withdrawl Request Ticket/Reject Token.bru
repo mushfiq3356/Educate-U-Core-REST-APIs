@@ -1,0 +1,23 @@
+meta {
+  name: Reject Token
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{BASE_URL}}/withdrawal-request/reject
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "tokenId": "173a7cbf-5829-42e0-86c6-45b15ef94b7c"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

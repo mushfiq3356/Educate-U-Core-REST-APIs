@@ -1,21 +1,21 @@
 meta {
-  name: Resolve EC2 Request
+  name: Resolve EC Request
   type: http
-  seq: 7
+  seq: 3
 }
 
 patch {
-  url: {{BASE_URL}}/support-tokens/resolve-ec2-request
+  url: {{BASE_URL}}/faculty-ec-request/resolve
   body: json
   auth: inherit
 }
 
 body:json {
   {
-     "tokenId": "a40122f8-f9c7-4202-9c6d-830e04fb4393",
+     "tokenId":  "e5157088-513b-411f-adda-df82c1645270",
    // "tokenId": "44472e05-9740-49f2-92ec-e69d121d37b9",
    // "moduleId": "06dccbbe-f17d-4f01-979c-a298a220b07b",
-    "assessmentId": "36f73c33-518b-480f-9c2f-6f83949a3829"
+    "assessmentId": "41aa3e0f-0161-49ab-9746-08448b417c12"
   }
   
 }
