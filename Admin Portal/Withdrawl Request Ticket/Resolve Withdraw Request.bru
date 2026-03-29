@@ -1,11 +1,11 @@
 meta {
   name: Resolve Withdraw Request
   type: http
-  seq: 6
+  seq: 3
 }
 
 patch {
-  url: {{BASE_URL}}/support-tokens/resolve-withdraw-request
+  url: {{BASE_URL}}/withdrawal-request/resolve
   body: json
   auth: inherit
 }
