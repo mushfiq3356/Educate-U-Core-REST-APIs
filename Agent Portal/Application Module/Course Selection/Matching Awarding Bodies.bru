@@ -1,0 +1,20 @@
+meta {
+  name: Matching Awarding Bodies
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/application-management/session/{{SESSION_ID}}/matching-awarding-bodies?pageSize=50
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 50
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

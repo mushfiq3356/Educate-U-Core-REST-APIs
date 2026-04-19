@@ -1,0 +1,30 @@
+meta {
+  name: Get Logs
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/notification-log
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "emailType": [
+      "PASSWORD_UPDATE_EMAIL",
+      "EMAIL_VERIFICATION_EMAIL",
+      "INTERVIEW_REMINDER_EMAIL_24H",
+      "INTERVIEW_REMINDER_EMAIL_1H",
+      "APPLICATION_OUTCOME_EMAIL",
+      "STRIPE_APPLICATION_OUTCOME_EMAIL"
+    ],
+    "pageSize":100
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

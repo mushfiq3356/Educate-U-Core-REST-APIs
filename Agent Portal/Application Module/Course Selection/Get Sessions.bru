@@ -1,0 +1,23 @@
+meta {
+  name: Get Sessions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/application-management/session?status=UPCOMING&status=ACTIVE&status=TEMPORARILY_ACTIVE&pageSize=50
+  body: none
+  auth: inherit
+}
+
+params:query {
+  status: UPCOMING
+  status: ACTIVE
+  status: TEMPORARILY_ACTIVE
+  pageSize: 50
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

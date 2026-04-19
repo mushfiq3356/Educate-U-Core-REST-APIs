@@ -1,0 +1,32 @@
+meta {
+  name: Agent Logs
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/agent-notification-log
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    //   "searchTerm": "bal",
+    //   "emailType": [
+    //     "PASSWORD_UPDATE_EMAIL",
+    //     "EMAIL_VERIFICATION_EMAIL",
+    //     "INTERVIEW_REMINDER_EMAIL_24H",
+    //     "INTERVIEW_REMINDER_EMAIL_1H",
+    //     "APPLICATION_OUTCOME_EMAIL",
+    //     "STRIPE_APPLICATION_OUTCOME_EMAIL"
+    //   ],
+    "endDate": "2026-04-03T09:00:02.200Z",
+    "startDate": "2026-04-02T09:00:02.200Z"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
