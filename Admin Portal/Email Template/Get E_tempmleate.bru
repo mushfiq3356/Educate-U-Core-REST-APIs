@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/system-settings/email-templates
+  url: {{BASE_URL}}/system-settings/email-templates?type=WELLBEING_APPROVED_EMAIL
   body: none
   auth: inherit
 }
 
-headers {
-  type: ENROLLMENT_EMAIL
+params:query {
+  type: WELLBEING_APPROVED_EMAIL
 }
 
 body:json {

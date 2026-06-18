@@ -6,14 +6,15 @@ meta {
 
 post {
   url: {{BASE_URL}}/registry
-  body: none
+  body: json
   auth: inherit
 }
 
 body:json {
-  // {
-  //   "page":1
-  // }
+  {
+   "studentStatus":"ACTIVE",
+    "page":1
+  }
 }
 
 settings {

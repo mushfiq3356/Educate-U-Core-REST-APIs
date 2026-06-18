@@ -5,14 +5,14 @@ meta {
 }
 
 post {
-  url: {{BASE_URL}}/student-portal/assessments/6e385f79-e008-4a2b-b9f8-cd7d57aa87ea/submit-answers
+  url: {{BASE_URL}}/student-portal/assessments/4c7daaa8-28a6-4c06-b4e5-44e8355d65b6/submit-answers?studentCourseId={{STUDENT_COURSE_ID}}&moduleId={{MODULE_ID}}
   body: json
   auth: inherit
 }
 
 params:query {
-  ~studentCourseId: {{STUDENT_COURSE_ID}}
-  ~moduleId: {{MODULE_ID}}
+  studentCourseId: {{STUDENT_COURSE_ID}}
+  moduleId: {{MODULE_ID}}
 }
 
 body:json {
@@ -24,6 +24,10 @@ body:json {
       }
     ]
   }
+}
+
+vars:pre-request {
+  STUDENT_COURSE_ID: 5342134e-0bbc-4956-9f8f-8dac401fa10d
 }
 
 docs {

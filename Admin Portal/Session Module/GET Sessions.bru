@@ -5,12 +5,13 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/session
+  url: {{BASE_URL}}/session?stage=IN_PROGRESS
   body: none
   auth: inherit
 }
 
 params:query {
+  stage: IN_PROGRESS
   ~search: one
 }
 

@@ -1,17 +1,13 @@
 meta {
-  name: Preview E_tempmleate
+  name: Get E_tempmleate
   type: http
-  seq: 3
+  seq: 2
 }
 
 get {
-  url: {{BASE_URL}}/system-settings/email-templates/preview?type=STUDENT_REGISTRATION_EMAIL
+  url: {{BASE_URL}}/agent-email-templates
   body: none
   auth: inherit
-}
-
-params:query {
-  type: STUDENT_REGISTRATION_EMAIL
 }
 
 body:json {

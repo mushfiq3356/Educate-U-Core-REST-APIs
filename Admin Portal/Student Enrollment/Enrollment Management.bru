@@ -1,0 +1,25 @@
+meta {
+  name: Enrollment Management
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/enrollment-management
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "pageSize": "10",
+    "page": 1,
+    "status": "migrated",
+    "courseType": "DEGREE_COURSE"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

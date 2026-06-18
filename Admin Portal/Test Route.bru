@@ -1,0 +1,32 @@
+meta {
+  name: Test Route
+  type: http
+  seq: 20
+}
+
+post {
+  url: {{BASE_URL}}/interview/applications/0714b367-59f8-4a51-aec3-798af34713b0
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "title": "ssssf",
+      "interviewDate": "2026-04-23T14:25:42.229Z",
+      "startTime": "2026-04-23T05:05:00.000Z",
+      "endTime": "2026-04-23T06:06:00.000Z",
+      "platform": "Google Meet",
+      "interviewLink": "https://hotitem.com",
+      "guests": [
+          "china@gmail.com"
+      ],
+      "interviewerId": "66652fca-177a-4306-b457-be0f08fe72f1",
+      "color": "#9786FF"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

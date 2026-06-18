@@ -1,0 +1,16 @@
+meta {
+  name: Reject applicant Public
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/api/v1/public/reject/applications/065bd5c5-0e17-423a-89ac-56861514fbe5
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

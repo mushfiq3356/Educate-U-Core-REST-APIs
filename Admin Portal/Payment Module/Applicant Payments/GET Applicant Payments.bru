@@ -5,26 +5,28 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/payments/applicant-payments?page=1&limit=10&status=PENDING
+  url: {{BASE_URL}}/payments/applicant-payments?page=1&limit=100
   body: none
-  auth: none
+  auth: bearer
 }
 
-query {
+params:query {
   page: 1
-  limit: 10
-  status: PENDING
+  limit: 100
+  ~overdue: true
+  ~status: active
   ~paymentPlan: INSTALLMENT
   ~applicantId: {{applicationId}}
   ~courseId: {{courseId}}
   ~dueDate: 2025-09-05
-  ~overdue: true
 }
 
-headers {
-  user-id: {{userId}}
-  portal-category-id: {{portalCategoryId}}
-  role-id: {{roleId}}
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3MDdjZDdkOC1lYWE3LTRjOTItYTYxZS03ZDg4ZWVjNDJkZTYiLCJ1c2VyUG9ydGFsQ2F0ZWdvcnlJZCI6IjI2YmYyODM3LTE5Y2EtNDA3OS05Y2U4LTFmODczY2VmMGI2OCIsImlhdCI6MTc4MTY4ODEzNCwiZXhwIjoxNzgyOTg0MTM0fQ.mKSh19GcV_EljevyzSvj96fNvPq0YQdHXGZVj_hfPvI
+}
+
+vars:pre-request {
+  applicationId: d6ef7aae-28ad-4f72-917f-bc551fa3f3ae
 }
 
 docs {
