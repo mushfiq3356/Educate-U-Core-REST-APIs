@@ -1,0 +1,24 @@
+meta {
+  name: Resolve Withdraw Request
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{BASE_URL}}/study-break-request/resolve
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "studyBreakStartDate": "2026-06-20T06:49:35.191Z",
+    "studyBreakEndDate": "2026-08-20T06:49:35.191Z",
+    "tokenId": "453d2ae5-9162-4df1-9013-0ec85e89653d"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

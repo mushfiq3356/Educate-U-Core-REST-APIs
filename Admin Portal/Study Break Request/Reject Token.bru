@@ -1,0 +1,23 @@
+meta {
+  name: Reject Token
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{BASE_URL}}/study-break-request/reject
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "tokenId": "52295cda-fd5d-4786-9222-a0fd995dfd87"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
